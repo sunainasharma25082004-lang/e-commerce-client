@@ -22,15 +22,29 @@
   box-sizing: border-box;
 }
 
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
   background-color: var(--cream-light);
   color: var(--text-dark);
+  overflow-x: hidden;
 }
 
 .app {
   max-width: 100%;
-  overflow-x: hidden;
+}
+
+.site-header {
+  position: relative;
+  z-index: 200;
+}
+
+.site-main {
+  position: relative;
+  z-index: 1;
 }
 
 .container {
@@ -102,6 +116,8 @@ h1, h2, h3, h4 {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
   margin-bottom: 28px;
 }
 
@@ -109,6 +125,27 @@ h1, h2, h3, h4 {
   font-size: 24px;
   font-weight: 700;
   color: var(--brown-dark);
+}
+
+.view-all-link-btn {
+  background: none;
+  border: none;
+  color: var(--brown-light);
+  font-size: 13px;
+  font-weight: 500;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.view-all-link-btn:hover {
+  color: var(--gold);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 .view-all-link {
@@ -166,4 +203,53 @@ h1, h2, h3, h4 {
 ::-webkit-scrollbar-thumb {
   background: var(--brown-light);
   border-radius: 3px;
+}
+
+/* Global Responsiveness */
+@media (max-width: 992px) {
+  .container {
+    padding: 0 20px;
+  }
+
+  .section-title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+
+  .view-all-link-btn {
+    display: none;
+  }
+
+  .btn-primary,
+  .btn-outline,
+  .btn-dark {
+    padding: 10px 20px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .section-title {
+    font-size: 18px;
+  }
 }

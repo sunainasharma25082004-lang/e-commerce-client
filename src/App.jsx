@@ -1,6 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { AuthProvider } from "./context/AuthContext";
+import { CartProvider } from "./context/CartContext";
+
 import Navbar from "./components/Navbar";
 import AnnouncementBar from "./components/AnnouncementBar";
 import Footer from "./components/Footer";
@@ -15,6 +18,14 @@ import Newsletter from "./components/Newsletter";
 
 import Allproducts from "./components/Allproducts";
 import ProductDetail from "./components/ProductDetail";
+import Checkout from "./components/Checkout";
+import OrderHistory from "./components/OrderHistory";
+import InfoPage from "./components/InfoPage";
+import Wishlist from "./components/Wishlist";
+
+import CartOverlay from "./components/CartOverlay";
+import AuthModal from "./components/AuthModal";
+import ScrollToTop from "./components/ScrollToTop";
 
 import "./index.css";
 
@@ -34,27 +45,39 @@ const HomePage = () => {
 
 function App() {
   return (
-    <Router>
-      <div className="app">
+    <AuthProvider>
+      <CartProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="app">
 
-        {/* Top always visible */}
-        <AnnouncementBar />
-        <Navbar />
+            <header className="site-header">
+              <AnnouncementBar />
+              <Navbar />
+            </header>
 
-        {/* Pages */}
-        <Routes>
-          <Route path="/" element={<HomePage />} />
+            <main className="site-main">
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/allproducts" element={<Allproducts />} />
+              <Route path="/product/:id" element={<ProductDetail />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/orders" element={<OrderHistory />} />
+              <Route path="/wishlist" element={<Wishlist />} />
+              <Route path="/page/:slug" element={<InfoPage />} />
+            </Routes>
+            </main>
 
-          <Route path="/allproducts" element={<Allproducts />} />
+            <Footer />
 
-            <Route path="/product/:id" element={<ProductDetail />} />
-        </Routes>
+            {/* Global Overlays */}
+            <CartOverlay />
+            <AuthModal />
 
-        {/* Footer always visible */}
-        <Footer />
-
-      </div>
-    </Router>
+          </div>
+        </Router>
+      </CartProvider>
+    </AuthProvider>
   );
 }
 

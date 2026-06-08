@@ -109,3 +109,48 @@
   color: rgba(245,236,215,0.4);
   font-size: 11px;
 }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .newsletter {
+    padding: 50px 16px;
+  }
+
+  .nl-title {
+    font-size: 28px;
+  }
+
+  .nl-desc {
+    font-size: 12px;
+    margin-bottom: 24px;
+  }
+
+  .nl-form {
+    flex-direction: column;
+    border-radius: 8px;
+  }
+
+  .nl-input {
+    border-radius: 8px 8px 0 0;
+  }
+
+  .nl-btn {
+    border-radius: 0 0 8px 8px;
+    padding: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .newsletter {
+    padding: 40px 12px;
+  }
+
+  .nl-title {
+    font-size: 24px;
+  }
+
+  .nl-eyebrow {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+}

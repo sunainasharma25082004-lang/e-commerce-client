@@ -128,3 +128,56 @@
   background-color: #C9A84C;
   color: #2C1A0E;
 }
+
+/* Responsiveness */
+@media (max-width: 768px) {
+  .new-arrivals {
+    padding: 40px 0;
+  }
+
+  .arrivals-btn {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .arrival-item {
+    padding: 14px 16px;
+    gap: 14px;
+  }
+
+  .arrival-img-wrap {
+    width: 60px;
+    height: 60px;
+  }
+
+  .arrival-name {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .arrival-item {
+    flex-wrap: wrap;
+    padding: 14px;
+    gap: 12px;
+  }
+
+  .arrival-info {
+    flex: 1;
+    min-width: calc(100% - 72px);
+  }
+
+  .arrival-price {
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid #f0e8d8;
+  }
+
+  .arrival-desc {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}

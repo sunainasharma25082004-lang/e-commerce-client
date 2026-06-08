@@ -94,3 +94,37 @@
   font-size: 11px;
   color: #C9A84C;
 }
+
+/* Responsiveness */
+@media (max-width: 992px) {
+  .reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-reviews {
+    padding: 40px 0;
+  }
+
+  .reviews-header {
+    margin-bottom: 28px;
+  }
+
+  .review-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .reviews-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .review-text {
+    font-size: 12px;
+    margin-bottom: 16px;
+  }
+}

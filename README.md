@@ -1,6 +1,6 @@
-# Tradilian — Premium E-Commerce Website
+# Truemart — Premium E-Commerce Website
 
-A pixel-perfect React clone of the Tradilian premium e-commerce UI.
+A pixel-perfect React clone of the Truemart premium e-commerce UI.
 
 ## Tech Stack
 - React 18
@@ -11,7 +11,7 @@ A pixel-perfect React clone of the Tradilian premium e-commerce UI.
 ## Project Structure
 
 ```
-tradilian/
+truemart/
 ├── index.html
 ├── vite.config.js
 ├── package.json

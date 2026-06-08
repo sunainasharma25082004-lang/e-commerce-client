@@ -1,84 +1,216 @@
-import React, { useState, useMemo } from 'react';
-import { products, categories, sortOptions } from '../data/products';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useNavigate, useLocation, useSearchParams } from 'react-router-dom';
+
+import API_URL from '../config/api';
+import ProductCard from './ProductCard';
 import './Allproducts.css';
-import { useNavigate } from 'react-router-dom';
 
 const StarRating = ({ rating, size = 12 }) => (
-   
   <span className="stars" style={{ fontSize: size }}>
     {'★'.repeat(Math.floor(rating))}{'☆'.repeat(5 - Math.floor(rating))}
   </span>
 );
 
 const priceRanges = [
-  { label: 'Under $50', min: 0, max: 50 },
-  { label: '$50 – $100', min: 50, max: 100 },
-  { label: '$100 – $200', min: 100, max: 200 },
-  { label: 'Over $200', min: 200, max: Infinity },
+  { label: 'Under ₹100', min: 0, max: 100 },
+  { label: '₹100 – ₹150', min: 100, max: 150 },
+  { label: '₹150 – ₹200', min: 150, max: 200 },
+  { label: 'Over ₹200', min: 200, max: 99999 },
 ];
 
 const ratingOptions = [5, 4, 3];
+const sortOptions = ['Featured', 'Price: Low to High', 'Price: High to Low', 'Best Rating', 'Newest'];
 
-const Allproducts = ({ onProductClick }) => {
-    const navigate = useNavigate();
+const Allproducts = () => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [searchParams] = useSearchParams();
+  const [productsList, setProductsList] = useState([]);
+  const [categories, setCategories] = useState(['All']);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
   const [activeCategory, setActiveCategory] = useState('All');
   const [sortBy, setSortBy] = useState('Featured');
   const [activePriceRange, setActivePriceRange] = useState(null);
   const [activeRating, setActiveRating] = useState(null);
-  const [wishlist, setWishlist] = useState([]);
-  const [viewMode, setViewMode] = useState('grid'); // grid | list
+  const [searchKeyword, setSearchKeyword] = useState('');
+  const [searchField, setSearchField] = useState('');
+  const [saleOnly, setSaleOnly] = useState(false);
+  const [pageTitle, setPageTitle] = useState('Shop All Products');
+  const [pageDesc, setPageDesc] = useState('Explore our complete collection of premium handcrafted products');
   const [currentPage, setCurrentPage] = useState(1);
+  const [totalPages, setTotalPages] = useState(1);
+  const [totalProducts, setTotalProducts] = useState(0);
   const perPage = 8;
 
-  const toggleWishlist = (id) => {
-    setWishlist((w) => w.includes(id) ? w.filter((x) => x !== id) : [...w, id]);
+  const [showMobileFilters, setShowMobileFilters] = useState(false);
+
+  useEffect(() => {
+    axios.get(`${API_URL}/categories`)
+      .then((res) => {
+        const names = (res.data.categories || []).map((c) => c.name);
+        setCategories(['All', ...names]);
+      })
+      .catch(() => setCategories(['All']));
+  }, []);
+
+  useEffect(() => {
+    if (location.state?.category) {
+      setActiveCategory(location.state.category);
+      setCurrentPage(1);
+      window.history.replaceState({}, document.title);
+    }
+  }, [location]);
+
+  useEffect(() => {
+    const sort = searchParams.get('sort');
+    const sale = searchParams.get('sale');
+    const category = searchParams.get('category');
+    const title = searchParams.get('title');
+    const desc = searchParams.get('desc');
+
+    if (sort && sortOptions.includes(sort)) setSortBy(sort);
+    if (category) setActiveCategory(category);
+    setSaleOnly(sale === 'true');
+    if (title) setPageTitle(title);
+    else setPageTitle('Shop All Products');
+    if (desc) setPageDesc(desc);
+    else setPageDesc('Explore our complete collection of premium handcrafted products');
+    setCurrentPage(1);
+  }, [searchParams, categories]);
+
+  // Fetch products from Express backend
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const params = {
+          page: currentPage,
+          limit: perPage,
+          sort: sortBy,
+          category: activeCategory,
+        };
+
+        if (searchKeyword) {
+          params.keyword = searchKeyword;
+        }
+
+        if (activePriceRange) {
+          params.minPrice = activePriceRange.min;
+          params.maxPrice = activePriceRange.max;
+        }
+
+        if (activeRating) {
+          params.rating = activeRating;
+        }
+
+        const res = await axios.get(`${API_URL}/products`, { params });
+        let list = res.data.products || [];
+        if (saleOnly) {
+          list = list.filter((p) => p.badge === 'SALE');
+        }
+        setProductsList(list);
+        setTotalPages(saleOnly ? Math.ceil(list.length / perPage) || 1 : res.data.pages);
+        setTotalProducts(saleOnly ? list.length : res.data.total);
+      } catch (err) {
+        console.error('Failed to fetch products:', err);
+        setError('Failed to load products. Make sure the backend server is running.');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, [activeCategory, sortBy, activePriceRange, activeRating, searchKeyword, currentPage, saleOnly]);
+
+  const handleSearchSubmit = (e) => {
+    e.preventDefault();
+    setSearchKeyword(searchField);
+    setCurrentPage(1);
   };
 
-  const filtered = useMemo(() => {
-    let list = [...products];
-    if (activeCategory !== 'All') list = list.filter((p) => p.category === activeCategory);
-    if (activePriceRange) {
-      list = list.filter((p) => p.price >= activePriceRange.min && p.price <= activePriceRange.max);
-    }
-    if (activeRating) list = list.filter((p) => Math.floor(p.rating) >= activeRating);
-    switch (sortBy) {
-      case 'Price: Low to High': list.sort((a, b) => a.price - b.price); break;
-      case 'Price: High to Low': list.sort((a, b) => b.price - a.price); break;
-      case 'Best Rating': list.sort((a, b) => b.rating - a.rating); break;
-      default: break;
-    }
-    return list;
-  }, [activeCategory, activePriceRange, activeRating, sortBy]);
-
-  const totalPages = Math.ceil(filtered.length / perPage);
-  const paginated = filtered.slice((currentPage - 1) * perPage, currentPage * perPage);
-
-  const badgeClass = (b) => ({ SALE: 'badge-sale', NEW: 'badge-new', HOT: 'badge-hot' }[b] || '');
+  const handleClearFilters = () => {
+    setActiveCategory('All');
+    setActivePriceRange(null);
+    setActiveRating(null);
+    setSearchKeyword('');
+    setSearchField('');
+    setCurrentPage(1);
+  };
 
   return (
     <div className="all-products-page">
-      {/* Breadcrumb */}
-      <div className="breadcrumb-bar">
-        <div className="container">
+      {/* Page Header */}
+      <div className="ap-page-header">
+        <div className="container ap-header-content">
           <div className="breadcrumb">
-            <span className="bc-link" onClick={() => window.scrollTo(0,0)}>Home</span>
+            <span className="bc-link" onClick={() => navigate('/')}>Home</span>
             <span className="bc-sep">›</span>
             <span className="bc-current">All Products</span>
           </div>
-          <p className="bc-desc">Explore our complete collection of premium handcrafted products</p>
+          <h1 className="ap-page-title">{pageTitle}</h1>
+          <p className="ap-page-desc">{pageDesc}</p>
         </div>
       </div>
 
+      {/* Filter overlay for mobile */}
+      <div
+        className={`filter-overlay ${showMobileFilters ? 'show' : ''}`}
+        onClick={() => setShowMobileFilters(false)}
+      />
+
       <div className="container ap-body">
-        <div className="ap-layout">
-          {/* ── SIDEBAR ── */}
-          <aside className="ap-sidebar">
-            {/* Filter header */}
-            <div className="sidebar-header">
-              <span>⚙ Filters</span>
-              <button className="clear-btn" onClick={() => { setActiveCategory('All'); setActivePriceRange(null); setActiveRating(null); }}>
-                Clear All
+        {/* Search Bar */}
+        <div className="search-bar-container">
+          <form onSubmit={handleSearchSubmit} className="search-form">
+            <input
+              type="text"
+              placeholder="Search products by keyword..."
+              value={searchField}
+              onChange={(e) => setSearchField(e.target.value)}
+              className="search-input"
+            />
+            <button type="submit" className="search-submit-btn btn-dark">Search</button>
+            {(searchKeyword || activeCategory !== 'All' || activePriceRange || activeRating) && (
+              <button type="button" onClick={handleClearFilters} className="clear-search-btn">
+                Clear
               </button>
+            )}
+          </form>
+        </div>
+
+        {/* Mobile category chips */}
+        <div className="mobile-category-chips">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              className={`chip-btn ${activeCategory === cat ? 'active' : ''}`}
+              onClick={() => { setActiveCategory(cat); setCurrentPage(1); }}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Mobile Filter Toggle */}
+        <div className="mobile-filter-bar">
+          <button className="mobile-filter-toggle-btn" onClick={() => setShowMobileFilters(!showMobileFilters)}>
+            ⚙ {showMobileFilters ? 'Hide Filters' : 'Filters & Sort'}
+          </button>
+        </div>
+
+        <div className="ap-layout">
+          {/* Sidebar */}
+          <aside className={`ap-sidebar ${showMobileFilters ? 'mobile-show' : ''}`}>
+            <div className="sidebar-header">
+              <span>Filters</span>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <button className="clear-btn" onClick={handleClearFilters}>Clear All</button>
+                <button className="sidebar-close-btn" onClick={() => setShowMobileFilters(false)}>✕</button>
+              </div>
             </div>
 
             {/* Categories */}
@@ -89,12 +221,9 @@ const Allproducts = ({ onProductClick }) => {
                   <li key={cat}>
                     <button
                       className={`sidebar-item ${activeCategory === cat ? 'active' : ''}`}
-                      onClick={() => { setActiveCategory(cat); setCurrentPage(1); }}
+                      onClick={() => { setActiveCategory(cat); setCurrentPage(1); setShowMobileFilters(false); }}
                     >
                       <span>{cat}</span>
-                      <span className="sidebar-count">
-                        {cat === 'All' ? products.length : products.filter((p) => p.category === cat).length}
-                      </span>
                     </button>
                   </li>
                 ))}
@@ -135,9 +264,6 @@ const Allproducts = ({ onProductClick }) => {
                 ))}
               </ul>
             </div>
-
-            {/* Apply button */}
-            <button className="apply-filters-btn">Apply Filters</button>
           </aside>
 
           {/* ── MAIN CONTENT ── */}
@@ -145,71 +271,43 @@ const Allproducts = ({ onProductClick }) => {
             {/* Toolbar */}
             <div className="ap-toolbar">
               <p className="ap-count">
-                Showing <strong>{paginated.length}</strong> of <strong>{filtered.length}</strong> products
+                Showing <strong>{productsList.length}</strong> of <strong>{totalProducts}</strong> products
               </p>
               <div className="toolbar-right">
-                <div className="view-toggle">
-                  <button className={`view-btn ${viewMode === 'grid' ? 'active' : ''}`} onClick={() => setViewMode('grid')}>⊞</button>
-                  <button className={`view-btn ${viewMode === 'list' ? 'active' : ''}`} onClick={() => setViewMode('list')}>☰</button>
-                </div>
+                <span className="sort-label">Sort by</span>
                 <select className="sort-select" value={sortBy} onChange={(e) => setSortBy(e.target.value)}>
                   {sortOptions.map((s) => <option key={s}>{s}</option>)}
                 </select>
               </div>
             </div>
 
-            {/* Products Grid */}
-            <div className={`ap-grid ${viewMode === 'list' ? 'list-view' : ''}`}>
-              {paginated.map((product) => (
-                <div
-                  key={product.id}
-                  className="ap-card"
-                  onClick={() => onProductClick(product)}
-                >
-                  <div className="ap-card-img-wrap">
-                    <img src={product.image} alt={product.name} className="ap-card-img" />
-                    {product.badge && (
-                      <span className={`product-badge ${badgeClass(product.badge)}`}>{product.badge}</span>
-                    )}
-                    <button
-                      className={`wishlist-btn ${wishlist.includes(product.id) ? 'active' : ''}`}
-                      onClick={(e) => { e.stopPropagation(); toggleWishlist(product.id); }}
-                    >
-                      {wishlist.includes(product.id) ? '♥' : '♡'}
-                    </button>
-                    <div className="ap-card-hover">
-                     <button
-      className="hover-btn"
-      onClick={(e) => {
-        e.stopPropagation();
-        navigate(`/product/${product.id}`);
-      }}
-    >
-      Quick View
-    </button>
-                      <button className="hover-btn hover-cart" onClick={(e) => e.stopPropagation()}>
-                        Add to Cart
-                      </button>
-                    </div>
-                  </div>
-                  <div className="ap-card-info">
-                    <p className="ap-card-cat">{product.category}</p>
-                    <h3 className="ap-card-name">{product.name}</h3>
-                    <div className="ap-card-rating">
-                      <StarRating rating={product.rating} />
-                      <span className="rating-count">({product.reviews})</span>
-                    </div>
-                    <div className="ap-card-price">
-                      <span className="price-current">${product.price.toFixed(2)}</span>
-                      {product.oldPrice && <span className="price-old">${product.oldPrice.toFixed(2)}</span>}
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {/* Loading / Error States */}
+            {loading ? (
+              <div className="ap-loading-container">
+                <div className="spinner"></div>
+                <p>Loading artisanal collection...</p>
+              </div>
+            ) : error ? (
+              <div className="ap-error-container">
+                <p>{error}</p>
+                <button className="btn-dark" onClick={handleClearFilters}>Reset Filters</button>
+              </div>
+            ) : productsList.length === 0 ? (
+              <div className="ap-empty-container">
+                <p>No products found matching your filter criteria.</p>
+                <button className="btn-dark" onClick={handleClearFilters}>View All Products</button>
+              </div>
+            ) : (
+              /* Products Grid */
+              <div className="ap-grid">
+                {productsList.map((product) => (
+                  <ProductCard key={product._id || product.id} product={product} />
+                ))}
+              </div>
+            )}
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {!loading && totalPages > 1 && (
               <div className="pagination">
                 <button
                   className="page-btn"

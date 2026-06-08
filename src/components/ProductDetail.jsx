@@ -1,6 +1,11 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { products } from "../data/products";
+import React, { useState, useEffect, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { CartContext } from "../context/CartContext";
+import { AuthContext } from "../context/AuthContext";
+import API_URL from '../config/api';
+import ProductRating from './ProductRating';
+import { formatINR, formatINRPlain, FREE_SHIPPING_MIN } from '../utils/currency';
 import "./ProductDetail.css";
 
 const StarRating = ({ rating = 0, size = 14 }) => (
@@ -13,19 +18,87 @@ const StarRating = ({ rating = 0, size = 14 }) => (
 const badgeClass = (b) =>
   ({ SALE: "badge-sale", NEW: "badge-new", HOT: "badge-hot" }[b] || "");
 
-const ProductDetail = ({ onBack, onProductClick }) => {
-
+const ProductDetail = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { addToCart, toggleWishlist, isWishlisted } = useContext(CartContext);
+  const { user } = useContext(AuthContext);
 
-  // ✅ FIX: product from URL
-  const product = products.find(
-    (p) => String(p.id) === String(id)
-  );
+  const [product, setProduct] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [reviewsData, setReviewsData] = useState(null);
+  const [reviewsLoading, setReviewsLoading] = useState(false);
 
-  if (!product) {
+  const [activeImg, setActiveImg] = useState(0);
+  const [qty, setQty] = useState(1);
+  const [activeColor, setActiveColor] = useState(0);
+  const [activeTab, setActiveTab] = useState("description");
+  const [cartAdded, setCartAdded] = useState(false);
+
+  // Fetch product from MERN Backend
+  useEffect(() => {
+    const fetchProduct = async () => {
+      setLoading(true);
+      setError(null);
+      try {
+        const res = await axios.get(`${API_URL}/products/${id}`);
+        setProduct(res.data);
+      } catch (err) {
+        console.error('Failed to fetch product details:', err);
+        setError('Failed to load product details.');
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchProduct();
+  }, [id]);
+
+  useEffect(() => {
+    const fetchReviews = async () => {
+      setReviewsLoading(true);
+      try {
+        const res = await axios.get(`${API_URL}/products/${id}/reviews`);
+        setReviewsData(res.data);
+      } catch (err) {
+        console.error('Failed to load reviews:', err);
+      } finally {
+        setReviewsLoading(false);
+      }
+    };
+    if (id) fetchReviews();
+  }, [id, user]);
+
+  const handleReviewSubmitted = (data) => {
+    setReviewsData((prev) => ({
+      ...prev,
+      userReview: data.review,
+      canReview: true,
+      averageRating: data.productRating,
+      totalReviews: data.productReviews,
+      reviews: prev?.userReview
+        ? prev.reviews.map((r) => (r._id === data.review._id ? data.review : r))
+        : [data.review, ...(prev?.reviews || [])],
+    }));
+    setProduct((prev) => prev ? { ...prev, rating: data.productRating, reviews: data.productReviews } : prev);
+  };
+
+  if (loading) {
     return (
-      <div className="container">
-        <h2>Product not found</h2>
+      <div className="pd-loading-container">
+        <div className="spinner"></div>
+        <p>Loading product details...</p>
+      </div>
+    );
+  }
+
+  if (error || !product) {
+    return (
+      <div className="pd-wrap pd-error-container">
+        <h2>⚠️ {error || 'Product not found'}</h2>
+        <button className="btn-dark back-btn" onClick={() => navigate('/allproducts')}>
+          Back to Shop
+        </button>
       </div>
     );
   }
@@ -35,19 +108,6 @@ const ProductDetail = ({ onBack, onProductClick }) => {
       ? product.images
       : [product.image || "/placeholder.png"];
 
-  const [activeImg, setActiveImg] = useState(0);
-  const [qty, setQty] = useState(1);
-  const [activeColor, setActiveColor] = useState(0);
-  const [activeTab, setActiveTab] = useState("description");
-  const [cartAdded, setCartAdded] = useState(false);
-  const [wishlisted, setWishlisted] = useState(false);
-
-  const related = products
-    .filter(
-      (p) => p.category === product.category && p.id !== product.id
-    )
-    .slice(0, 4);
-
   const discount =
     product.oldPrice && product.price
       ? Math.round(
@@ -55,16 +115,38 @@ const ProductDetail = ({ onBack, onProductClick }) => {
         )
       : null;
 
+  const isWish = isWishlisted(product._id || product.id);
+
   const handleAddCart = () => {
+    const color = product.colors?.length > 0 ? product.colors[activeColor] : '';
+    addToCart(product, qty, color);
     setCartAdded(true);
     setTimeout(() => setCartAdded(false), 2000);
   };
 
+  const handleBuyNow = () => {
+    const color = product.colors?.length > 0 ? product.colors[activeColor] : '';
+    addToCart(product, qty, color);
+    navigate('/checkout');
+  };
+
   return (
     <div className="pd-page">
-      <div className="container pd-body">
-        <div className="pd-top">
+      {/* Breadcrumbs */}
+      <div className="breadcrumb-bar">
+        <div className="pd-wrap">
+          <div className="breadcrumb">
+            <span className="bc-link" onClick={() => navigate('/')}>Home</span>
+            <span className="bc-sep">›</span>
+            <span className="bc-link" onClick={() => navigate('/allproducts')}>Shop</span>
+            <span className="bc-sep">›</span>
+            <span className="bc-current">{product.name}</span>
+          </div>
+        </div>
+      </div>
 
+      <div className="pd-wrap pd-body">
+        <div className="pd-top">
           {/* Gallery */}
           <div className="pd-gallery">
             <div className="pd-main-img-wrap">
@@ -106,7 +188,7 @@ const ProductDetail = ({ onBack, onProductClick }) => {
           <div className="pd-info">
             <div className="pd-brand-row">
               <span className="pd-brand">
-                {product.brand || "Brand"}
+                {product.brand || "Artisanal"}
               </span>
 
               {product.badge && (
@@ -126,17 +208,18 @@ const ProductDetail = ({ onBack, onProductClick }) => {
               <span className="pd-rating-count">
                 ({product.reviews || 0} reviews)
               </span>
+              <span className="pd-in-stock">In Stock</span>
             </div>
 
             <div className="pd-price-row">
               <span className="pd-price-current">
-                ${(product.price || 0).toFixed(2)}
+                {formatINR(product.price || 0)}
               </span>
 
               {product.oldPrice && (
                 <>
                   <span className="pd-price-old">
-                    ${product.oldPrice.toFixed(2)}
+                    {formatINR(product.oldPrice)}
                   </span>
 
                   <span className="pd-price-save">
@@ -209,17 +292,17 @@ const ProductDetail = ({ onBack, onProductClick }) => {
                   : "🛒 Add to Cart"}
               </button>
 
-              <button className="btn-buy-now">
+              <button className="btn-buy-now" onClick={handleBuyNow}>
                 ⚡ Buy Now
               </button>
 
               <button
                 className={`btn-wishlist ${
-                  wishlisted ? "active" : ""
+                  isWish ? "active" : ""
                 }`}
-                onClick={() => setWishlisted(!wishlisted)}
+                onClick={() => toggleWishlist(product)}
               >
-                {wishlisted ? "♥" : "♡"}
+                {isWish ? "♥" : "♡"}
               </button>
             </div>
 
@@ -237,38 +320,134 @@ const ProductDetail = ({ onBack, onProductClick }) => {
               </p>
             </div>
           </div>
+
+          {/* Sidebar Guarantee Card */}
+          <aside className="pd-sidebar">
+            <div className="pd-sidebar-card">
+              <h4 className="pd-sidebar-title">Truemart Promise</h4>
+              <ul className="pd-sidebar-list">
+                <li>✨ 100% Genuine Handcrafted Crafts</li>
+                <li>🚚 Free Shipping on Orders above {formatINRPlain(FREE_SHIPPING_MIN, { decimals: 0 })}</li>
+                <li>🔒 Safe Payments via Razorpay</li>
+                <li>📦 Safe Breakage-free Wood Packing</li>
+              </ul>
+            </div>
+            <div className="pd-sidebar-card green-card">
+              <p className="green-card-text">Support local artisans with every purchase you make.</p>
+              <button className="green-card-btn" onClick={() => navigate('/allproducts')}>Explore Collection</button>
+            </div>
+          </aside>
         </div>
 
-        {/* Tabs */}
-        <div className="pd-tab-content">
+        {/* Tabs Section */}
+        <div className="pd-tabs-section">
+          <div className="pd-tabs">
+            <button 
+              className={`pd-tab ${activeTab === 'description' ? 'active' : ''}`}
+              onClick={() => setActiveTab('description')}
+            >
+              Description
+            </button>
+            <button 
+              className={`pd-tab ${activeTab === 'features' ? 'active' : ''}`}
+              onClick={() => setActiveTab('features')}
+            >
+              Specifications & Features
+            </button>
+            <button 
+              className={`pd-tab ${activeTab === 'reviews' ? 'active' : ''}`}
+              onClick={() => setActiveTab('reviews')}
+            >
+              Reviews {reviewsData?.totalReviews ? `(${reviewsData.totalReviews})` : ''}
+            </button>
+          </div>
 
-          {activeTab === "description" && (
-            <div className="tab-desc">
-              {(product.description || "No description available")
-                .split("\n\n")
-                .map((para, i) => (
-                  <p key={i}>{para}</p>
-                ))}
-            </div>
-          )}
+          <div className="pd-tab-content">
+            {activeTab === "description" && (
+              <div className="tab-desc">
+                {(product.description || "No description available")
+                  .split("\n\n")
+                  .map((para, i) => (
+                    <p key={i}>{para}</p>
+                  ))}
+              </div>
+            )}
 
-          {activeTab === "features" && (
-            <div className="tab-features">
-              {product.keyFeatures?.length ? (
-                product.keyFeatures.map((f, i) => (
-                  <div key={i} className="feature-card">
-                    <span className="feature-icon">{f.icon}</span>
-                    <div>
-                      <h4>{f.title}</h4>
-                      <p>{f.desc}</p>
+            {activeTab === "features" && (
+              <div className="tab-features">
+                {product.keyFeatures?.length ? (
+                  product.keyFeatures.map((f, i) => (
+                    <div key={i} className="feature-card">
+                      <span className="feature-icon">{f.icon}</span>
+                      <div>
+                        <h4 className="feature-title">{f.title}</h4>
+                        <p className="feature-desc">{f.desc}</p>
+                      </div>
                     </div>
+                  ))
+                ) : (
+                  <p>No specifications available.</p>
+                )}
+              </div>
+            )}
+
+            {activeTab === "reviews" && (
+              <div className="tab-reviews">
+                <div className="reviews-summary">
+                  <div className="reviews-avg">
+                    <span className="avg-number">{reviewsData?.averageRating || product.rating || 0}</span>
+                    <StarRating rating={reviewsData?.averageRating || product.rating || 0} size={18} />
+                    <span className="avg-count">{reviewsData?.totalReviews || product.reviews || 0} reviews</span>
                   </div>
-                ))
-              ) : (
-                <p>No features available.</p>
-              )}
-            </div>
-          )}
+                </div>
+
+                {reviewsLoading ? (
+                  <p className="reviews-loading">Loading reviews...</p>
+                ) : (
+                  <>
+                    {user && reviewsData?.canReview && (
+                      <div className="review-form-section">
+                        <h4>{reviewsData?.userReview ? 'Update Your Review' : 'Write a Review'}</h4>
+                        <p className="review-eligible-note">You purchased this product — share your experience!</p>
+                        <ProductRating
+                          productId={product._id}
+                          existingReview={reviewsData.userReview}
+                          onRated={handleReviewSubmitted}
+                        />
+                      </div>
+                    )}
+
+                    {user && !reviewsData?.canReview && !reviewsData?.userReview && (
+                      <p className="review-not-eligible">Rate this product after your order is delivered.</p>
+                    )}
+
+                    {!user && (
+                      <p className="review-not-eligible">Sign in to leave a review after delivery.</p>
+                    )}
+
+                    <div className="reviews-list">
+                      {reviewsData?.reviews?.length ? (
+                        reviewsData.reviews.map((review) => (
+                          <div key={review._id} className="review-item">
+                            <div className="review-item-top">
+                              <StarRating rating={review.rating} size={14} />
+                              <span className="review-author">{review.userName}</span>
+                              <span className="review-date">
+                                {new Date(review.createdAt).toLocaleDateString()}
+                              </span>
+                            </div>
+                            {review.comment && <p className="review-comment-text">"{review.comment}"</p>}
+                          </div>
+                        ))
+                      ) : (
+                        <p className="no-reviews">No reviews yet. Be the first to rate this product!</p>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+            )}
+          </div>
         </div>
 
       </div>

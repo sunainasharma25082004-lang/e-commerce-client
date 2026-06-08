@@ -1,49 +1,28 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import API_URL from '../config/api';
 import './ShopCategories.css';
 
-const categories = [
-  {
-    id: 1,
-    name: 'Jewelry & Accessories',
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80',
-    count: '142 Products',
-    featured: true,
-  },
-  {
-    id: 2,
-    name: 'Home Decor',
-    image: 'https://images.unsplash.com/photo-1616046229478-9901c5536a45?w=400&q=80',
-    count: '98 Products',
-  },
-  {
-    id: 3,
-    name: 'Gift Sets',
-    image: 'https://images.unsplash.com/photo-1549465220-1a8b9238cd48?w=400&q=80',
-    count: '67 Products',
-  },
-  {
-    id: 4,
-    name: 'Beauty & Skincare',
-    image: 'https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=400&q=80',
-    count: '115 Products',
-  },
-  {
-    id: 5,
-    name: 'Food & Gourmet',
-    image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?w=400&q=80',
-    count: '83 Products',
-  },
-  {
-    id: 6,
-    name: 'Fashion',
-    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=80',
-    count: '201 Products',
-  },
-];
-
 const ShopCategories = () => {
+  const navigate = useNavigate();
   const [active, setActive] = useState('All');
+  const [categories, setCategories] = useState([]);
+  const [loading, setLoading] = useState(true);
   const filters = ['All', 'Popular', 'New', 'Sale'];
+
+  useEffect(() => {
+    axios.get(`${API_URL}/categories`, { params: { home: true } })
+      .then((res) => {
+        setCategories(res.data.categories || []);
+      })
+      .catch(() => setCategories([]))
+      .finally(() => setLoading(false));
+  }, []);
+
+  const handleCategoryClick = (cat) => {
+    navigate('/allproducts', { state: { category: cat.name } });
+  };
 
   return (
     <section className="shop-categories">
@@ -61,23 +40,40 @@ const ShopCategories = () => {
               </button>
             ))}
           </div>
-          <a href="#" className="view-all-link">View All →</a>
+          <button className="view-all-link-btn" onClick={() => navigate('/allproducts')}>View All →</button>
         </div>
 
-        <div className="categories-grid">
-          {categories.map((cat) => (
-            <div key={cat.id} className={`category-card ${cat.featured ? 'featured' : ''}`}>
-              <div className="cat-img-wrap">
-                <img src={cat.image} alt={cat.name} className="cat-img" />
-                <div className="cat-overlay" />
+        {loading ? (
+          <div className="categories-loading">Loading categories...</div>
+        ) : categories.length === 0 ? (
+          <div className="categories-empty">
+            <p>Categories will appear here once added from the admin panel.</p>
+          </div>
+        ) : (
+          <div className="categories-grid">
+            {categories.map((cat) => (
+              <div
+                key={cat._id}
+                className="category-card"
+                onClick={() => handleCategoryClick(cat)}
+                style={{ cursor: 'pointer' }}
+              >
+                <div className="cat-img-wrap">
+                  <img src={cat.image} alt={cat.title || cat.name} className="cat-img" />
+                  <div className="cat-overlay" />
+                </div>
+                <div className="cat-info">
+                  <h3 className="cat-name">{cat.title || cat.name}</h3>
+                  <p className="cat-count">
+                    {cat.productCount > 0
+                      ? `${cat.productCount} Product${cat.productCount > 1 ? 's' : ''}`
+                      : 'Explore collection'}
+                  </p>
+                </div>
               </div>
-              <div className="cat-info">
-                <h3 className="cat-name">{cat.name}</h3>
-                <p className="cat-count">{cat.count}</p>
-              </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        )}
       </div>
     </section>
   );
