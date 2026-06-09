@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  height: 96px;
+  height: 88px;
 }
 
 .nav-brand-group {
@@ -37,6 +37,11 @@
   text-decoration: none;
   overflow: visible;
   flex-shrink: 0;
+}
+
+/* Navbar logo - sized to fit nicely in navbar */
+.nav-logo .brand-logo-img {
+  height: 60px;
 }
 
 .logo-icon {
@@ -251,6 +256,10 @@
     height: 60px;
   }
 
+  .nav-logo .brand-logo-img {
+    height: 50px;
+  }
+
   .nav-brand-group {
     gap: 4px;
   }
@@ -402,5 +411,9 @@
 
   .mobile-menu-overlay {
     inset: 56px 0 0 0;
+  }
+
+  .nav-logo .brand-logo-img {
+    height: 44px;
   }
 }

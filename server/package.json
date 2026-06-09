@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node server.js",
     "start:prod": "node --env-file=.env server.js",
-    "dev": "nodemon server.js",
+    "dev": "npx nodemon server.js",
     "seed": "node scripts/seed.js"
   },
   "dependencies": {
