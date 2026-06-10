@@ -195,6 +195,11 @@
   font-size: 12px;
 }
 
+/* Wishlist View button specific tweaks (inherits good light styles from global .btn-outline now) */
+.wl-view-btn {
+  font-weight: 600;
+}
+
 @media (max-width: 768px) {
   .wishlist-title {
     font-size: 26px;

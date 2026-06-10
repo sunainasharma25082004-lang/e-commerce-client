@@ -71,14 +71,22 @@ const Wishlist = () => {
                     </div>
                     <div className="wl-actions">
                       <button
+                        type="button"
                         className="btn-primary wl-add-btn"
-                        onClick={() => addToCart(product, 1, '')}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          addToCart(product, 1, '');
+                        }}
                       >
                         Add to Cart
                       </button>
                       <button
+                        type="button"
                         className="btn-outline wl-view-btn"
-                        onClick={() => navigate(`/product/${prodId}`)}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          navigate(`/product/${prodId}`);
+                        }}
                       >
                         View
                       </button>

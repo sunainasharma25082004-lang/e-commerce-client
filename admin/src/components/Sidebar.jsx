@@ -33,7 +33,7 @@ const Sidebar = () => {
             {link.label}
           </NavLink>
         ))}
-        <a href="http://localhost:5173" target="_blank" rel="noreferrer" className="nav-link">
+        <a href={import.meta.env.VITE_STORE_URL || 'http://localhost:5173'} target="_blank" rel="noreferrer" className="nav-link">
           <span>🛍️</span>
           View Store
         </a>

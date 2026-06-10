@@ -61,14 +61,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Register
+  // Register - creates account but does NOT log the user in automatically.
+  // User must use login() separately after successful registration.
   const register = async (name, email, password) => {
     setLoading(true);
     setError(null);
     try {
       const res = await axios.post(`${API_URL}/auth/register`, { name, email, password });
-      setToken(res.data.token);
-      setUser(res.data);
+      // Do NOT call setToken / setUser here on purpose.
+      // This ensures user has to manually login with credentials after creating account.
       return res.data;
     } catch (err) {
       const msg = err.response?.data?.message || 'Registration failed.';

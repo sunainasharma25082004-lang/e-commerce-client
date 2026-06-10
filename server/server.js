@@ -78,6 +78,26 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/admin/upload', uploadRoutes);
 
+// Serve the built frontend (dist/) as static files in production.
+// Also provide SPA fallback so React Router (BrowserRouter) client routes work
+// on direct navigation, deep links, or page refresh.
+// This is required for single-service full-stack deployment on Render.
+// - Static assets (JS/CSS/images from Vite build) are served first.
+// - Unknown paths that are not /api/* or /uploads/* fall back to index.html.
+// - API 404s still reach notFound + errorHandler and return proper JSON errors.
+// Only active when NODE_ENV=production (Render sets this automatically).
+if (isProduction) {
+  const distPath = path.join(__dirname, '../dist');
+  app.use(express.static(distPath, { maxAge: '1d' }));
+
+  app.get('*', (req, res, next) => {
+    if (req.originalUrl.startsWith('/api') || req.originalUrl.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(distPath, 'index.html'));
+  });
+}
+
 app.use(notFound);
 app.use(errorHandler);
 
