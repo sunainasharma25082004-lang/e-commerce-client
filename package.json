@@ -9,7 +9,7 @@
     "admin": "npm run dev --prefix admin",
     "server": "npm run dev --prefix server",
     "seed": "node server/scripts/seed.js",
-    "build": "npm install --prefix server --production && vite build",
+    "build": "npm install --include=dev && npm install --prefix server --omit=dev && npx vite build",
     "start": "node server/server.js",
     "preview": "vite preview"
   },
