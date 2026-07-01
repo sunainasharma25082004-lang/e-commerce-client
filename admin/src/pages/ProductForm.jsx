@@ -203,7 +203,7 @@ const ProductForm = () => {
               </select>
               {!categoriesLoading && categories.length === 0 && (
                 <small style={{ color: '#c0392b' }}>
-                  No categories found. <Link to="/categories/new" style={{ color: '#4CAF7A' }}>Add a category first</Link>
+                  No categories found. <Link to="/categories/new" className="link-accent">Add a category first</Link>
                 </small>
               )}
             </div>
