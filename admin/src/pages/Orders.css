@@ -1,4 +1,4 @@
-.orders-page .orders-stats {
+﻿.orders-page .orders-stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 12px;
@@ -46,7 +46,7 @@
 }
 
 .order-detail-header:hover {
-  background: #fdfaf4;
+  background: #FFFFFF;
 }
 
 .order-detail-header .order-main-info {
@@ -165,7 +165,7 @@
 }
 
 .order-admin-panel {
-  background: #fdfaf4;
+  background: #FFFFFF;
   border: 1px solid var(--card-border);
   border-radius: 10px;
   padding: 16px;
@@ -208,7 +208,7 @@
 .delivery-preview {
   margin-top: 12px;
   padding: 10px 12px;
-  background: rgba(201, 168, 76, 0.1);
+  background: rgba(76, 175, 122, 0.1);
   border-radius: 8px;
   font-size: 12px;
   color: var(--brown-mid);

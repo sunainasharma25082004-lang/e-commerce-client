@@ -1,6 +1,6 @@
-.featured-products {
+﻿.featured-products {
   padding: 60px 0;
-  background-color: #FDF6E9;
+  background-color: #F8FAF9;
 }
 
 .product-tabs {
@@ -11,7 +11,7 @@
 
 .tab-btn {
   background: none;
-  border: 1.5px solid #e8dcc8;
+  border: 1.5px solid #E0EBE6;
   color: #4a4a4a;
   padding: 6px 16px;
   font-size: 12px;
@@ -24,9 +24,9 @@
 
 .tab-btn.active,
 .tab-btn:hover {
-  background-color: #2C1A0E;
-  border-color: #2C1A0E;
-  color: #F5ECD7;
+  background-color: #1B3D2F;
+  border-color: #1B3D2F;
+  color: #FFFFFF;
 }
 
 .products-grid {

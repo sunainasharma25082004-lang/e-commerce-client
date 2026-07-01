@@ -1,0 +1,48 @@
+---
+pid: 7620
+cwd: "C:\Users\hi\OneDrive\Desktop\all web\tradilian"
+command: "cd \"C:\\Users\\hi\\OneDrive\\Desktop\\all web\\tradilian\"; npm run build"
+started_at: 2026-07-01T08:16:41.498Z
+running_for_ms: 120001   
+---
+
+> truemart@1.0.0 build
+> npm install --include=dev && npm install --prefix server --omit=dev && npx vite build
+
+
+up to date, audited 121 packages in 4s
+
+21 packages are looking for funding
+  run `npm fund` for details
+
+3 vulnerabilities (1 moderate, 2 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.
+
+up to date, audited 144 packages in 3s
+
+23 packages are looking for funding
+  run `npm fund` for details
+
+2 high severity vulnerabilities
+
+To address all issues, run:
+  npm audit fix
+
+Run `npm audit` for details.
+vite v5.4.21 building for production...
+transforming...
+✓ 141 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.67 kB │ gzip:  0.37 kB
+dist/assets/image-G9D07owv.png  366.75 kB
+dist/assets/index-D0o9S1OA.css   81.08 kB │ gzip: 14.51 kB
+dist/assets/index-C-ybgrAx.js   305.81 kB │ gzip: 98.62 kB
+✓ built in 3.50s

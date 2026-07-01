@@ -47,7 +47,7 @@ const Sidebar = () => {
             <div className="admin-email">{admin?.email}</div>
           </div>
         </div>
-        <button className="btn btn-outline btn-sm" style={{ width: '100%', color: '#f5ecd7', borderColor: 'rgba(245,236,215,0.2)' }} onClick={logout}>
+        <button className="btn btn-outline btn-sm" style={{ width: '100%', color: '#ffffff', borderColor: 'rgba(255,255,255,0.2)' }} onClick={logout}>
           Sign Out
         </button>
       </div>

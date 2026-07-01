@@ -46,7 +46,7 @@ const Categories = () => {
           ) : categories.length === 0 ? (
             <div className="empty-state">
               No categories yet.{' '}
-              <Link to="/categories/new" style={{ color: '#c9a84c' }}>Add your first category</Link>
+              <Link to="/categories/new" style={{ color: '#4CAF7A' }}>Add your first category</Link>
             </div>
           ) : (
             <div className="table-wrap">

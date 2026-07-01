@@ -1,19 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
 
 :root {
-  --brown-dark: #2C1A0E;
-  --brown-mid: #4A2C17;
-  --brown-light: #7B4A2D;
-  --gold: #C9A84C;
-  --gold-light: #E2C47A;
-  --cream: #F5ECD7;
-  --cream-light: #FDF6E9;
-  --green-dark: #2D4A2D;
-  --text-dark: #1a1a1a;
-  --text-mid: #4a4a4a;
-  --text-light: #888;
+  --brown-dark: #1B3D2F;
+  --brown-mid: #2D5A47;
+  --brown-light: #4A7C59;
+  --gold: #2D6A4F;
+  --gold-light: #4CAF7A;
+  --cream: #FFFFFF;
+  --cream-light: #F8FAF9;
+  --green-dark: #1B3D2F;
+  --text-dark: #1B3D2F;
+  --text-mid: #3D5A4A;
+  --text-light: #6B8578;
   --white: #ffffff;
-  --border: #e8dcc8;
+  --border: #E0EBE6;
 }
 
 * {
@@ -59,8 +59,8 @@ h1, h2, h3, h4 {
 
 /* Buttons */
 .btn-primary {
-  background-color: var(--gold);
-  color: var(--brown-dark);
+  background-color: var(--brown-dark);
+  color: var(--white);
   border: none;
   padding: 10px 24px;
   font-family: 'Poppins', sans-serif;
@@ -73,7 +73,7 @@ h1, h2, h3, h4 {
 }
 
 .btn-primary:hover {
-  background-color: var(--gold-light);
+  background-color: var(--brown-mid);
 }
 
 .btn-outline {
@@ -91,13 +91,13 @@ h1, h2, h3, h4 {
 
 .btn-outline:hover {
   background-color: var(--brown-dark);
-  color: var(--cream);
+  color: var(--white);
   border-color: var(--brown-dark);
 }
 
 .btn-dark {
   background-color: var(--brown-dark);
-  color: var(--cream);
+  color: var(--white);
   border: none;
   padding: 10px 24px;
   font-family: 'Poppins', sans-serif;
@@ -179,8 +179,8 @@ img {
 
 /* Badge */
 .badge {
-  background-color: var(--gold);
-  color: var(--brown-dark);
+  background-color: var(--brown-dark);
+  color: var(--white);
   font-size: 10px;
   font-weight: 700;
   padding: 2px 8px;

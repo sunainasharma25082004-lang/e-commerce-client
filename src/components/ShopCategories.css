@@ -1,13 +1,13 @@
-.shop-categories {
+﻿.shop-categories {
   padding: 60px 0 50px;
-  background-color: #FDF6E9;
+  background-color: #F8FAF9;
 }
 
 .categories-loading,
 .categories-empty {
   text-align: center;
   padding: 40px 20px;
-  color: #6b5a4e;
+  color: #4A7C59;
   font-size: 14px;
 }
 
@@ -18,7 +18,7 @@
 
 .filter-btn {
   background: none;
-  border: 1.5px solid #e8dcc8;
+  border: 1.5px solid #E0EBE6;
   color: #4a4a4a;
   padding: 6px 16px;
   font-size: 12px;
@@ -31,9 +31,9 @@
 
 .filter-btn.active,
 .filter-btn:hover {
-  background-color: #2C1A0E;
-  border-color: #2C1A0E;
-  color: #F5ECD7;
+  background-color: #1B3D2F;
+  border-color: #1B3D2F;
+  color: #FFFFFF;
 }
 
 .categories-grid {
@@ -53,7 +53,7 @@
 
 .category-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 12px 32px rgba(44, 26, 14, 0.2);
+  box-shadow: 0 12px 32px rgba(27, 61, 47, 0.2);
 }
 
 .cat-img-wrap {
@@ -80,13 +80,13 @@
 .cat-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(44,26,14,0.6) 0%, transparent 50%);
+  background: linear-gradient(to top, rgba(27,61,47,0.6) 0%, transparent 50%);
 }
 
 .cat-info {
   background-color: #fff;
   padding: 12px 16px;
-  border: 1px solid #e8dcc8;
+  border: 1px solid #E0EBE6;
   border-top: none;
   border-radius: 0 0 10px 10px;
 }
@@ -94,7 +94,7 @@
 .cat-name {
   font-size: 14px;
   font-weight: 600;
-  color: #2C1A0E;
+  color: #1B3D2F;
   margin-bottom: 3px;
   font-family: 'Playfair Display', serif;
 }

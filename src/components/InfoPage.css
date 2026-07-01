@@ -1,11 +1,11 @@
-.info-page {
+﻿.info-page {
   background: var(--cream-light);
   min-height: 70vh;
   padding-bottom: 60px;
 }
 
 .info-page-header {
-  background: linear-gradient(135deg, #2C1A0E 0%, #4A2C17 100%);
+  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 100%);
   padding: 32px 0 36px;
   margin-bottom: 36px;
 }
@@ -18,32 +18,32 @@
 }
 
 .info-page-header .bc-link {
-  color: #C9A84C;
+  color: #4CAF7A;
   font-size: 13px;
   cursor: pointer;
   font-weight: 500;
 }
 
 .info-page-header .bc-sep {
-  color: rgba(245, 236, 215, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
 }
 
 .info-page-header .bc-current {
-  color: rgba(245, 236, 215, 0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 13px;
 }
 
 .info-title {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
-  color: #F5ECD7;
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
 .info-subtitle {
   font-size: 14px;
-  color: rgba(245, 236, 215, 0.65);
+  color: rgba(255, 255, 255, 0.65);
 }
 
 .info-body {
@@ -55,7 +55,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 36px 40px;
-  box-shadow: 0 4px 24px rgba(44, 26, 14, 0.05);
+  box-shadow: 0 4px 24px rgba(27, 61, 47, 0.05);
 }
 
 .info-section {
@@ -127,7 +127,7 @@
   border-radius: 8px;
   font-size: 14px;
   font-family: inherit;
-  background: #fdfaf4;
+  background: #FFFFFF;
   outline: none;
 }
 

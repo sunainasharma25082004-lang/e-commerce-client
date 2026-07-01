@@ -1,6 +1,6 @@
-.announcement-bar {
-  background-color: #2C1A0E;
-  color: #F5ECD7;
+﻿.announcement-bar {
+  background-color: #1B3D2F;
+  color: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -19,7 +19,7 @@
 .ann-arrow {
   background: none;
   border: none;
-  color: #F5ECD7;
+  color: #FFFFFF;
   font-size: 20px;
   cursor: pointer;
   line-height: 1;

@@ -1,5 +1,5 @@
-.newsletter {
-  background: linear-gradient(135deg, #2C1A0E 0%, #4A2C17 50%, #3B1F0D 100%);
+﻿.newsletter {
+  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 50%, #1F4D3A 100%);
   padding: 70px 24px;
   text-align: center;
   position: relative;
@@ -14,8 +14,8 @@
     45deg,
     transparent,
     transparent 50px,
-    rgba(201, 168, 76, 0.03) 50px,
-    rgba(201, 168, 76, 0.03) 51px
+    rgba(76, 175, 122, 0.03) 50px,
+    rgba(76, 175, 122, 0.03) 51px
   );
 }
 
@@ -27,7 +27,7 @@
 }
 
 .nl-eyebrow {
-  color: #C9A84C;
+  color: #4CAF7A;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 3px;
@@ -38,12 +38,12 @@
 .nl-title {
   font-size: 36px;
   font-weight: 700;
-  color: #F5ECD7;
+  color: #FFFFFF;
   margin-bottom: 14px;
 }
 
 .nl-desc {
-  color: rgba(245,236,215,0.65);
+  color: rgba(255,255,255,0.65);
   font-size: 13px;
   line-height: 1.8;
   margin-bottom: 30px;
@@ -64,10 +64,10 @@
   flex: 1;
   padding: 14px 18px;
   border: none;
-  background: rgba(245,236,215,0.95);
+  background: rgba(255,255,255,0.95);
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  color: #2C1A0E;
+  color: #1B3D2F;
   outline: none;
 }
 
@@ -76,8 +76,8 @@
 }
 
 .nl-btn {
-  background-color: #C9A84C;
-  color: #2C1A0E;
+  background-color: #4CAF7A;
+  color: #FFFFFF;
   border: none;
   padding: 14px 24px;
   font-family: 'Poppins', sans-serif;
@@ -90,7 +90,7 @@
 }
 
 .nl-btn:hover {
-  background-color: #E2C47A;
+  background-color: #8FD4B0;
 }
 
 .nl-success {
@@ -106,7 +106,7 @@
 }
 
 .nl-privacy {
-  color: rgba(245,236,215,0.4);
+  color: rgba(255,255,255,0.4);
   font-size: 11px;
 }
 

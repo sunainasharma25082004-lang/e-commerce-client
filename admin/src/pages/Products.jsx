@@ -46,7 +46,7 @@ const Products = () => {
             <div className="loading-state">Loading products...</div>
           ) : products.length === 0 ? (
             <div className="empty-state">
-              No products yet. <Link to="/products/new" style={{ color: '#c9a84c' }}>Add your first product</Link>
+              No products yet. <Link to="/products/new" style={{ color: '#4CAF7A' }}>Add your first product</Link>
             </div>
           ) : (
             <div className="table-wrap">

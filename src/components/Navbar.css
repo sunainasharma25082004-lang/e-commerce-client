@@ -1,8 +1,8 @@
-.navbar {
-  background: rgba(26, 15, 7, 0.95);
+﻿.navbar {
+  background: rgba(20, 46, 36, 0.95);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(201, 168, 76, 0.15);
+  border-bottom: 1px solid rgba(76, 175, 122, 0.15);
   position: -webkit-sticky;
   position: sticky;
   top: 0;
@@ -53,7 +53,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 22px;
   font-weight: 700;
-  color: #C9A84C;
+  color: #4CAF7A;
   letter-spacing: 0.5px;
 }
 
@@ -64,14 +64,14 @@
   align-items: center;
   justify-self: center;
   background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(245, 236, 215, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 999px;
   padding: 5px 8px;
 }
 
 .nav-item a,
 .logout-span-btn {
-  color: rgba(245, 236, 215, 0.85);
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
   font-size: 13.5px;
   font-weight: 500;
@@ -85,14 +85,14 @@
 }
 
 .nav-item.active a {
-  background: rgba(201, 168, 76, 0.18);
-  color: #C9A84C;
+  background: rgba(76, 175, 122, 0.18);
+  color: #4CAF7A;
 }
 
 .nav-item a:hover,
 .logout-span-btn:hover {
-  color: #C9A84C;
-  background: rgba(201, 168, 76, 0.08);
+  color: #4CAF7A;
+  background: rgba(76, 175, 122, 0.08);
 }
 
 .nav-actions {
@@ -103,9 +103,9 @@
 }
 
 .nav-icon-btn {
-  background: rgba(245, 236, 215, 0.06);
-  border: 1px solid rgba(245, 236, 215, 0.1);
-  color: #F5ECD7;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #FFFFFF;
   cursor: pointer;
   padding: 9px;
   border-radius: 10px;
@@ -117,17 +117,17 @@
 }
 
 .nav-icon-btn:hover {
-  background: rgba(201, 168, 76, 0.15);
-  border-color: rgba(201, 168, 76, 0.3);
-  color: #C9A84C;
+  background: rgba(76, 175, 122, 0.15);
+  border-color: rgba(76, 175, 122, 0.3);
+  color: #4CAF7A;
 }
 
 .cart-badge {
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: #C9A84C;
-  color: #1A0F07;
+  background-color: #4CAF7A;
+  color: #FFFFFF;
   font-size: 9px;
   font-weight: 700;
   min-width: 17px;
@@ -144,9 +144,9 @@
 }
 
 .profile-btn.logged-in {
-  color: #C9A84C;
-  border-color: rgba(201, 168, 76, 0.35);
-  background: rgba(201, 168, 76, 0.1);
+  color: #4CAF7A;
+  border-color: rgba(76, 175, 122, 0.35);
+  background: rgba(76, 175, 122, 0.1);
 }
 
 .profile-active-dot {
@@ -157,7 +157,7 @@
   height: 7px;
   background-color: #27ae60;
   border-radius: 50%;
-  border: 1.5px solid #1A0F07;
+  border: 1.5px solid #142E24;
 }
 
 .profile-dropdown-card {
@@ -169,7 +169,7 @@
   border-radius: 14px;
   width: 230px;
   padding: 16px;
-  box-shadow: 0 16px 40px rgba(44, 26, 14, 0.18);
+  box-shadow: 0 16px 40px rgba(27, 61, 47, 0.18);
   z-index: 105;
   display: flex;
   flex-direction: column;
@@ -276,9 +276,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(245, 236, 215, 0.06);
-    border: 1px solid rgba(245, 236, 215, 0.1);
-    color: #F5ECD7;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #FFFFFF;
     cursor: pointer;
     padding: 8px;
     border-radius: 10px;
@@ -286,8 +286,8 @@
   }
 
   .mobile-menu-toggle:hover {
-    background: rgba(201, 168, 76, 0.15);
-    color: #C9A84C;
+    background: rgba(76, 175, 122, 0.15);
+    color: #4CAF7A;
   }
 
   .mobile-menu-overlay {
@@ -311,14 +311,14 @@
     left: -100%;
     width: min(300px, 88vw);
     height: 100vh;
-    background: linear-gradient(180deg, #1A0F07 0%, #2C1A0E 100%);
+    background: linear-gradient(180deg, #142E24 0%, #1B3D2F 100%);
     flex-direction: column;
     align-items: stretch;
     padding: 0;
     gap: 0;
     border-radius: 0;
     border: none;
-    border-right: 1px solid rgba(201, 168, 76, 0.15);
+    border-right: 1px solid rgba(76, 175, 122, 0.15);
     transition: left 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: 12px 0 40px rgba(0, 0, 0, 0.4);
     z-index: 99;
@@ -335,7 +335,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 20px 20px 16px;
-    border-bottom: 1px solid rgba(245, 236, 215, 0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     margin-bottom: 8px;
     list-style: none;
     width: 100%;
@@ -345,13 +345,13 @@
     font-family: 'Playfair Display', serif;
     font-size: 18px;
     font-weight: 700;
-    color: #C9A84C;
+    color: #4CAF7A;
   }
 
   .mobile-drawer-close {
-    background: rgba(245, 236, 215, 0.08);
+    background: rgba(255, 255, 255, 0.08);
     border: none;
-    color: #F5ECD7;
+    color: #FFFFFF;
     width: 32px;
     height: 32px;
     border-radius: 8px;
@@ -377,7 +377,7 @@
   }
 
   .nav-item.active a {
-    background: rgba(201, 168, 76, 0.15);
+    background: rgba(76, 175, 122, 0.15);
   }
 
   .mobile-only-link {

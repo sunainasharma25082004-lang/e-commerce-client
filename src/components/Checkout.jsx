@@ -161,7 +161,7 @@ const Checkout = () => {
           contact: phone
         },
         theme: {
-          color: '#4A2C17' // Brown color
+          color: '#2D5A47'
         }
       };
 

@@ -1,6 +1,6 @@
-.new-arrivals {
+﻿.new-arrivals {
   padding: 60px 0;
-  background-color: #FDF6E9;
+  background-color: #F8FAF9;
 }
 
 .new-arrivals .section-header {
@@ -22,7 +22,7 @@
 
 .arrivals-list {
   background: #fff;
-  border: 1px solid #e8dcc8;
+  border: 1px solid #E0EBE6;
   border-radius: 12px;
   overflow: hidden;
 }
@@ -32,7 +32,7 @@
   align-items: center;
   gap: 20px;
   padding: 18px 24px;
-  border-bottom: 1px solid #f0e8d8;
+  border-bottom: 1px solid #E8F0EC;
   transition: background 0.2s;
   cursor: pointer;
 }
@@ -42,7 +42,7 @@
 }
 
 .arrival-item:hover {
-  background-color: #FDF6E9;
+  background-color: #F8FAF9;
 }
 
 .arrival-img-wrap {
@@ -51,7 +51,7 @@
   border-radius: 10px;
   overflow: hidden;
   flex-shrink: 0;
-  background: #f5f0e8;
+  background: #EEF5F1;
 }
 
 .arrival-img {
@@ -68,7 +68,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 15px;
   font-weight: 600;
-  color: #2C1A0E;
+  color: #1B3D2F;
   margin-bottom: 4px;
 }
 
@@ -85,7 +85,7 @@
 }
 
 .stars {
-  color: #C9A84C;
+  color: #4CAF7A;
   font-size: 12px;
 }
 
@@ -104,14 +104,14 @@
 .price-current {
   font-size: 16px;
   font-weight: 700;
-  color: #2C1A0E;
+  color: #1B3D2F;
 }
 
 .add-btn {
   width: 34px;
   height: 34px;
-  background-color: #2C1A0E;
-  color: #C9A84C;
+  background-color: #1B3D2F;
+  color: #4CAF7A;
   border: none;
   border-radius: 50%;
   font-size: 20px;
@@ -125,8 +125,8 @@
 }
 
 .add-btn:hover {
-  background-color: #C9A84C;
-  color: #2C1A0E;
+  background-color: #4CAF7A;
+  color: #1B3D2F;
 }
 
 /* Responsiveness */
@@ -171,7 +171,7 @@
     width: 100%;
     justify-content: space-between;
     padding-top: 8px;
-    border-top: 1px solid #f0e8d8;
+    border-top: 1px solid #E8F0EC;
   }
 
   .arrival-desc {

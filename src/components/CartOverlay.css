@@ -1,10 +1,10 @@
-.cart-overlay-backdrop {
+﻿.cart-overlay-backdrop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(44, 26, 14, 0.5);
+  background: rgba(27, 61, 47, 0.5);
   backdrop-filter: blur(6px);
   z-index: 999;
   display: flex;
@@ -17,7 +17,7 @@
   width: 100%;
   max-width: 440px;
   height: 100%;
-  box-shadow: -10px 0 40px rgba(44, 26, 14, 0.2);
+  box-shadow: -10px 0 40px rgba(27, 61, 47, 0.2);
   display: flex;
   flex-direction: column;
   animation: slideLeft 0.3s cubic-bezier(0.16, 1, 0.3, 1);
@@ -54,7 +54,7 @@
 }
 
 .cart-drawer-close:hover {
-  background: rgba(44, 26, 14, 0.08);
+  background: rgba(27, 61, 47, 0.08);
   color: var(--brown-dark);
 }
 
@@ -117,7 +117,7 @@
 }
 
 .cart-item-card:hover {
-  box-shadow: 0 4px 15px rgba(44, 26, 14, 0.06);
+  box-shadow: 0 4px 15px rgba(27, 61, 47, 0.06);
 }
 
 .cart-item-img {

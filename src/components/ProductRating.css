@@ -1,4 +1,4 @@
-.product-rating {
+﻿.product-rating {
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -39,12 +39,12 @@
 .rating-comment {
   width: 100%;
   padding: 10px 12px;
-  border: 1.5px solid var(--border, #e8dcc8);
+  border: 1.5px solid var(--border, #E0EBE6);
   border-radius: 8px;
   font-size: 13px;
   resize: vertical;
   font-family: inherit;
-  background: #fdfaf4;
+  background: #FFFFFF;
 }
 
 .rating-comment:focus {

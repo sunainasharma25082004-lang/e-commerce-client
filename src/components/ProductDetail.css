@@ -1,4 +1,4 @@
-/* Product detail — spacing tokens (no double .container padding) */
+﻿/* Product detail — spacing tokens (no double .container padding) */
 .pd-page {
   --pd-px: 24px;
   --pd-pt: 28px;
@@ -21,7 +21,7 @@
 
 /* Breadcrumb */
 .breadcrumb-bar {
-  background: linear-gradient(135deg, #2C1A0E 0%, #4A2C17 100%);
+  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 100%);
   padding: 16px 0;
   margin: 0;
 }
@@ -47,12 +47,12 @@
 }
 
 .bc-sep {
-  color: rgba(245, 236, 215, 0.5);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 13px;
 }
 
 .bc-current {
-  color: rgba(245, 236, 215, 0.85);
+  color: rgba(255, 255, 255, 0.85);
   font-size: 13px;
   white-space: nowrap;
   overflow: hidden;
@@ -88,7 +88,7 @@
   position: relative;
   border-radius: 14px;
   overflow: hidden;
-  background: #f0e8d8;
+  background: #E8F0EC;
   aspect-ratio: 1;
 }
 
@@ -153,7 +153,7 @@
   margin: 0;
   cursor: pointer;
   transition: border-color 0.2s;
-  background: #f0e8d8;
+  background: #E8F0EC;
   flex-shrink: 0;
 }
 
@@ -269,7 +269,7 @@
 }
 
 .pd-price-save {
-  background: rgba(201, 168, 76, 0.15);
+  background: rgba(76, 175, 122, 0.15);
   color: var(--gold);
   font-size: 12px;
   font-weight: 700;
@@ -339,7 +339,7 @@
 .qty-btn {
   width: 38px;
   height: 38px;
-  background: #f5f0e8;
+  background: #EEF5F1;
   border: none;
   font-size: 18px;
   cursor: pointer;
@@ -432,7 +432,7 @@
 }
 
 .pd-meta {
-  border-top: 1px solid #f0e8d8;
+  border-top: 1px solid #E8F0EC;
   padding-top: 12px;
   display: flex;
   flex-direction: column;
@@ -497,14 +497,14 @@
 }
 
 .green-card {
-  background: linear-gradient(135deg, #2D4A2D, #3d6b3d);
+  background: linear-gradient(135deg, #1B3D2F, #2D5A47);
   border-color: transparent;
   text-align: center;
 }
 
 .green-card-text {
   font-size: 13px;
-  color: rgba(245, 236, 215, 0.9);
+  color: rgba(255, 255, 255, 0.9);
   margin: 0 0 12px;
   line-height: 1.6;
 }
@@ -512,7 +512,7 @@
 .green-card-btn {
   width: 100%;
   padding: 9px;
-  background: rgba(201, 168, 76, 0.9);
+  background: rgba(76, 175, 122, 0.9);
   color: var(--brown-dark);
   border: none;
   border-radius: 6px;
@@ -535,7 +535,7 @@
 .pd-tabs {
   display: flex;
   border-bottom: 1px solid var(--border);
-  background: #faf5ec;
+  background: #F5FAF7;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
@@ -603,7 +603,7 @@
   padding: 14px;
   background: var(--cream-light);
   border-radius: 10px;
-  border: 1px solid #f0e8d8;
+  border: 1px solid #E8F0EC;
   margin: 0;
 }
 
@@ -637,7 +637,7 @@
 
 .reviews-summary {
   padding-bottom: 14px;
-  border-bottom: 1px solid #f0e8d8;
+  border-bottom: 1px solid #E8F0EC;
   margin: 0;
 }
 
@@ -666,7 +666,7 @@
 
 .review-form-section {
   background: var(--cream-light);
-  border: 1px solid #f0e8d8;
+  border: 1px solid #E8F0EC;
   border-radius: 12px;
   padding: 18px;
   margin: 0;
@@ -689,7 +689,7 @@
   font-size: 13px;
   color: var(--text-light);
   padding: 12px 14px;
-  background: #f9f6f0;
+  background: #F5FAF7;
   border-radius: 8px;
   margin: 0;
 }
@@ -705,7 +705,7 @@
   padding: 14px;
   background: var(--cream-light);
   border-radius: 10px;
-  border: 1px solid #f0e8d8;
+  border: 1px solid #E8F0EC;
   margin: 0;
 }
 

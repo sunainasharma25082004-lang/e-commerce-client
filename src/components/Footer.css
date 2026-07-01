@@ -1,6 +1,6 @@
-.footer {
-  background-color: #1A0F07;
-  color: #F5ECD7;
+﻿.footer {
+  background-color: #142E24;
+  color: #FFFFFF;
   padding: 60px 0 0;
 }
 
@@ -9,7 +9,7 @@
   grid-template-columns: 1.5fr 1fr 1fr 1fr;
   gap: 48px;
   padding-bottom: 48px;
-  border-bottom: 1px solid rgba(245,236,215,0.1);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
 }
 
 .footer-logo {
@@ -23,11 +23,11 @@
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 700;
-  color: #C9A84C;
+  color: #4CAF7A;
 }
 
 .footer-tagline {
-  color: rgba(245,236,215,0.5);
+  color: rgba(255,255,255,0.5);
   font-size: 12.5px;
   line-height: 1.8;
   margin-bottom: 20px;
@@ -42,9 +42,9 @@
 .social-link {
   width: 34px;
   height: 34px;
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.25);
-  color: #C9A84C;
+  background: rgba(76,175,122,0.12);
+  border: 1px solid rgba(76,175,122,0.25);
+  color: #4CAF7A;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -56,15 +56,15 @@
 }
 
 .social-link:hover {
-  background: #C9A84C;
-  color: #2C1A0E;
+  background: #4CAF7A;
+  color: #FFFFFF;
 }
 
 .footer-heading {
   font-family: 'Playfair Display', serif;
   font-size: 15px;
   font-weight: 700;
-  color: #F5ECD7;
+  color: #FFFFFF;
   margin-bottom: 16px;
 }
 
@@ -77,7 +77,7 @@
 
 .footer-links a,
 .footer-legal a {
-  color: rgba(245,236,215,0.5);
+  color: rgba(255,255,255,0.5);
   text-decoration: none;
   font-size: 13px;
   font-weight: 300;
@@ -86,7 +86,7 @@
 
 .footer-links a:hover,
 .footer-legal a:hover {
-  color: #C9A84C;
+  color: #4CAF7A;
 }
 
 .footer-bottom {
@@ -98,7 +98,7 @@
 
 .footer-copy {
   font-size: 12px;
-  color: rgba(245,236,215,0.35);
+  color: rgba(255,255,255,0.35);
 }
 
 .footer-legal {

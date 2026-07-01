@@ -203,7 +203,7 @@ const ProductForm = () => {
               </select>
               {!categoriesLoading && categories.length === 0 && (
                 <small style={{ color: '#c0392b' }}>
-                  No categories found. <Link to="/categories/new" style={{ color: '#c9a84c' }}>Add a category first</Link>
+                  No categories found. <Link to="/categories/new" style={{ color: '#4CAF7A' }}>Add a category first</Link>
                 </small>
               )}
             </div>
@@ -314,7 +314,7 @@ const ProductForm = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Colors (comma separated)</label>
-              <input name="colors" value={form.colors} onChange={handleChange} placeholder="#1a1a1a, #C9A84C" />
+              <input name="colors" value={form.colors} onChange={handleChange} placeholder="#1a1a1a, #4CAF7A" />
             </div>
             <div className="form-group">
               <label>Tags (comma separated)</label>
