@@ -104,7 +104,10 @@ const HeroSection = () => {
         <div className="trust-bar-inner">
           <div className="trust-items">
             {trustItems.map((item) => (
-              <div className="trust-item" key={item.title}>
+              <div
+                className={`trust-item${item.title === 'Free Shipping' ? ' trust-item--free-shipping' : ''}`}
+                key={item.title}
+              >
                 <span className="trust-icon-wrap" aria-hidden="true">
                   <span className="trust-icon">{item.icon}</span>
                 </span>

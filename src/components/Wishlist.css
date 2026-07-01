@@ -5,7 +5,8 @@
 }
 
 .wishlist-header {
-  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 100%);
+  background: #FFFFFF;
+  border-bottom: 1px solid #E8E8E8;
   padding: 32px 0 36px;
   margin-bottom: 32px;
 }
@@ -18,31 +19,31 @@
 }
 
 .wishlist-header .bc-link {
-  color: #4CAF7A;
+  color: #1B3D2F;
   font-size: 13px;
   cursor: pointer;
 }
 
 .wishlist-header .bc-sep {
-  color: rgba(255, 255, 255, 0.5);
+  color: #CCCCCC;
   font-size: 13px;
 }
 
 .wishlist-header .bc-current {
-  color: rgba(255, 255, 255, 0.8);
+  color: #888888;
   font-size: 13px;
 }
 
 .wishlist-title {
   font-family: 'Playfair Display', serif;
   font-size: 32px;
-  color: #FFFFFF;
+  color: #333333;
   margin-bottom: 6px;
 }
 
 .wishlist-desc {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.65);
+  color: #888888;
 }
 
 .wishlist-empty {

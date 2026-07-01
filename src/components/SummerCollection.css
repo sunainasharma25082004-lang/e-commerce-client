@@ -1,6 +1,10 @@
 ﻿.summer-collection {
-  padding: 50px 0;
-  background-color: #F8FAF9;
+  padding: 72px 0;
+  background-color: #F5F5F5;
+}
+
+.summer-header {
+  margin-bottom: 28px;
 }
 
 .collection-grid {
@@ -12,7 +16,8 @@
 
 .collection-main {
   position: relative;
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   cursor: pointer;
 }
@@ -85,7 +90,8 @@
 
 .collection-sub-card {
   flex: 1;
-  border-radius: 14px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s;
@@ -100,11 +106,13 @@
 }
 
 .collection-sub-card.green {
-  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 100%);
+  background: #FFFFFF;
+  border: 1px solid #E0E0E0;
 }
 
 .collection-sub-card.dark {
-  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 100%);
+  background: #F5F5F5;
+  border: 1px solid #E0E0E0;
 }
 
 /* Decorative pattern for sub cards */
@@ -132,14 +140,14 @@
 
 .sub-title {
   font-size: 22px;
-  color: #FFFFFF;
+  color: #333333;
   font-weight: 700;
   margin-bottom: 8px;
   line-height: 1.2;
 }
 
 .sub-desc {
-  color: rgba(255,255,255,0.65);
+  color: #888888;
   font-size: 12px;
   line-height: 1.6;
   margin-bottom: 16px;
@@ -148,8 +156,8 @@
 
 .btn-outline-gold {
   background: transparent;
-  border: 1.5px solid #4CAF7A;
-  color: #4CAF7A;
+  border: 1.5px solid #1B3D2F;
+  color: #1B3D2F;
   padding: 8px 18px;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
@@ -161,8 +169,8 @@
 }
 
 .btn-outline-gold:hover {
-  background-color: #4CAF7A;
-  color: #1B3D2F;
+  background-color: #1B3D2F;
+  color: #FFFFFF;
 }
 
 /* Responsiveness */

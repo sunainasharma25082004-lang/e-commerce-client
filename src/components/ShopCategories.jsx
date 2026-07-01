@@ -28,7 +28,11 @@ const ShopCategories = () => {
     <section className="shop-categories">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Shop Categories</h2>
+          <div className="section-intro">
+            <p className="section-eyebrow">Browse</p>
+            <h2 className="section-title">Shop Categories</h2>
+            <p className="section-subtitle">Explore curated collections across fashion, home, beauty and more.</p>
+          </div>
           <div className="category-filters">
             {filters.map((f) => (
               <button

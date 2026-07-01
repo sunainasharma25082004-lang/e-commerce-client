@@ -54,11 +54,16 @@ const NewArrivals = () => {
   return (
     <section className="new-arrivals">
       <div className="container">
-        <div className="section-header">
-          <h2 className="section-title">New Arrivals</h2>
-          <p className="arrivals-subtitle">Don't miss the new way for this label with all-new arrivals and limited items.</p>
+        <div className="section-header arrivals-header">
+          <div className="section-intro">
+            <p className="section-eyebrow">Just Landed</p>
+            <h2 className="section-title">New Arrivals</h2>
+            <p className="section-subtitle">Fresh products and limited editions — grab them before they're gone.</p>
+          </div>
+          <button type="button" className="btn-primary arrivals-btn" onClick={() => navigate('/allproducts')}>
+            Shop New Arrivals
+          </button>
         </div>
-        <button className="btn-dark arrivals-btn" onClick={() => navigate('/allproducts')}>New Arrivals</button>
 
         <div className="arrivals-list">
           {arrivals.map((item) => (

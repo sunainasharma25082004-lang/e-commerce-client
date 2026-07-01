@@ -3,7 +3,7 @@ pid: 7620
 cwd: "C:\Users\hi\OneDrive\Desktop\all web\tradilian"
 command: "cd \"C:\\Users\\hi\\OneDrive\\Desktop\\all web\\tradilian\"; npm run build"
 started_at: 2026-07-01T08:16:41.498Z
-running_for_ms: 120001   
+running_for_ms: 4829989  
 ---
 
 > truemart@1.0.0 build

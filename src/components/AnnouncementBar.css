@@ -1,6 +1,7 @@
-﻿.announcement-bar {
-  background-color: #1B3D2F;
-  color: #FFFFFF;
+.announcement-bar {
+  background-color: #F5F5F5;
+  color: #333333;
+  border-bottom: 1px solid #E8E8E8;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,15 +12,26 @@
   letter-spacing: 0.3px;
 }
 
+.announcement-bar--free-shipping {
+  background-color: #1B3D2F;
+  color: #FFFFFF;
+  border-bottom-color: #1B3D2F;
+}
+
 .ann-text {
   text-align: center;
   min-width: 340px;
 }
 
+.announcement-bar--free-shipping .ann-text {
+  color: #FFFFFF;
+  font-weight: 500;
+}
+
 .ann-arrow {
   background: none;
   border: none;
-  color: #FFFFFF;
+  color: inherit;
   font-size: 20px;
   cursor: pointer;
   line-height: 1;

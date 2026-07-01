@@ -45,7 +45,11 @@ const FeaturedProducts = () => {
     <section className="featured-products">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Featured Products</h2>
+          <div className="section-intro">
+            <p className="section-eyebrow">Top Picks</p>
+            <h2 className="section-title">Featured Products</h2>
+            <p className="section-subtitle">Handpicked bestsellers and trending items just for you.</p>
+          </div>
           <div className="product-tabs">
             {tabs.map((t) => (
               <button key={t} className={`tab-btn ${activeTab === t ? 'active' : ''}`} onClick={() => setActiveTab(t)}>

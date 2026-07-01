@@ -312,7 +312,9 @@ const Checkout = () => {
               </div>
               <div className="totals-row">
                 <span>Shipping</span>
-                <span>{shippingPrice === 0 ? 'FREE' : formatINR(shippingPrice)}</span>
+                <span className={shippingPrice === 0 ? 'checkout-free-badge' : ''}>
+                  {shippingPrice === 0 ? 'FREE' : formatINR(shippingPrice)}
+                </span>
               </div>
               <hr />
               <div className="totals-row final-total">

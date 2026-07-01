@@ -14,8 +14,10 @@ const AnnouncementBar = () => {
   const prev = () => setCurrent((c) => (c - 1 + announcements.length) % announcements.length);
   const next = () => setCurrent((c) => (c + 1) % announcements.length);
 
+  const isFreeShipping = announcements[current].toLowerCase().includes('free shipping');
+
   return (
-    <div className="announcement-bar">
+    <div className={`announcement-bar${isFreeShipping ? ' announcement-bar--free-shipping' : ''}`}>
       <button className="ann-arrow" onClick={prev}>‹</button>
       <p className="ann-text">{announcements[current]}</p>
       <button className="ann-arrow" onClick={next}>›</button>

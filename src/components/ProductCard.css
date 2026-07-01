@@ -4,8 +4,8 @@
   flex-direction: column;
   height: 100%;
   background: #fff;
-  border: 1px solid rgba(76, 175, 122, 0.18);
-  border-radius: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -13,9 +13,9 @@
 }
 
 .product-card:hover {
-  transform: translateY(-4px);
-  border-color: rgba(76, 175, 122, 0.38);
-  box-shadow: 0 14px 36px rgba(27, 61, 47, 0.1);
+  transform: translateY(-5px);
+  border-color: var(--border-soft);
+  box-shadow: var(--shadow-lg);
 }
 
 /* Media */
@@ -170,7 +170,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 14px;
   font-weight: 600;
-  color: var(--brown-dark);
+  color: var(--text-dark);
   line-height: 1.4;
   margin: 0;
   display: -webkit-box;

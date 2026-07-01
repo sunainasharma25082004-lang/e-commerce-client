@@ -40,8 +40,11 @@ const CustomerReviews = () => {
     <section className="customer-reviews">
       <div className="container">
         <div className="reviews-header">
-          <p className="reviews-eyebrow">✦ TESTIMONIALS</p>
-          <h2 className="section-title">Customer Reviews</h2>
+          <p className="section-eyebrow reviews-eyebrow-center">Testimonials</p>
+          <h2 className="section-title">What Our Customers Say</h2>
+          <p className="section-subtitle reviews-subtitle-center">
+            Real feedback from shoppers who love quality products and fast delivery.
+          </p>
         </div>
 
         <div className="reviews-grid">

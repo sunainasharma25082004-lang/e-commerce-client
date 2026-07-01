@@ -8,6 +8,13 @@ const SummerCollection = () => {
   return (
     <section className="summer-collection">
       <div className="container">
+        <div className="section-header summer-header">
+          <div className="section-intro">
+            <p className="section-eyebrow">Collections</p>
+            <h2 className="section-title">Seasonal Highlights</h2>
+            <p className="section-subtitle">Discover curated picks for every season and style.</p>
+          </div>
+        </div>
         <div className="collection-grid">
           {/* Main large banner */}
           <div className="collection-main">

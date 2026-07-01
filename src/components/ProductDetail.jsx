@@ -327,7 +327,7 @@ const ProductDetail = () => {
               <h4 className="pd-sidebar-title">Truemart Promise</h4>
               <ul className="pd-sidebar-list">
                 <li>✨ 100% Genuine Handcrafted Crafts</li>
-                <li>🚚 Free Shipping on Orders above {formatINRPlain(FREE_SHIPPING_MIN, { decimals: 0 })}</li>
+                <li className="free-shipping-text">🚚 Free Shipping on Orders above {formatINRPlain(FREE_SHIPPING_MIN, { decimals: 0 })}</li>
                 <li>🔒 Safe Payments via Razorpay</li>
                 <li>📦 Safe Breakage-free Wood Packing</li>
               </ul>

@@ -14,9 +14,9 @@
 }
 
 .auth-modal-card {
-  background: var(--cream-light);
+  background: var(--white);
   border: 1px solid var(--border);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   width: 90%;
   max-width: 460px;
   padding: 40px 32px;

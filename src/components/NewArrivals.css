@@ -1,40 +1,33 @@
-﻿.new-arrivals {
-  padding: 60px 0;
-  background-color: #F8FAF9;
+.new-arrivals {
+  padding: 72px 0;
+  background-color: #FFFFFF;
 }
 
-.new-arrivals .section-header {
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.arrivals-subtitle {
-  font-size: 13px;
-  color: #888;
-  font-weight: 300;
+.arrivals-header {
+  align-items: center;
 }
 
 .arrivals-btn {
-  margin-bottom: 28px;
+  flex-shrink: 0;
 }
 
 .arrivals-list {
-  background: #fff;
-  border: 1px solid #E0EBE6;
-  border-radius: 12px;
+  background: var(--cream-light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   overflow: hidden;
+  box-shadow: var(--shadow-sm);
 }
 
 .arrival-item {
   display: flex;
   align-items: center;
   gap: 20px;
-  padding: 18px 24px;
-  border-bottom: 1px solid #E8F0EC;
-  transition: background 0.2s;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.2s, padding-left 0.2s;
   cursor: pointer;
+  background: #FFFFFF;
 }
 
 .arrival-item:last-child {
@@ -42,55 +35,64 @@
 }
 
 .arrival-item:hover {
-  background-color: #F8FAF9;
+  background-color: #FAFAFA;
+  padding-left: 28px;
 }
 
 .arrival-img-wrap {
-  width: 72px;
-  height: 72px;
-  border-radius: 10px;
+  width: 80px;
+  height: 80px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   flex-shrink: 0;
-  background: #EEF5F1;
+  background: var(--cream-light);
+  border: 1px solid var(--border);
 }
 
 .arrival-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.arrival-item:hover .arrival-img {
+  transform: scale(1.05);
 }
 
 .arrival-info {
   flex: 1;
+  min-width: 0;
 }
 
 .arrival-name {
   font-family: 'Playfair Display', serif;
   font-size: 15px;
   font-weight: 600;
-  color: #1B3D2F;
+  color: var(--text-dark);
   margin-bottom: 4px;
 }
 
 .arrival-desc {
   font-size: 12px;
-  color: #888;
-  margin-bottom: 6px;
+  color: var(--text-light);
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
 
 .arrival-rating {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 6px;
 }
 
-.stars {
-  color: #4CAF7A;
+.arrival-rating .stars {
+  color: var(--gold-light);
   font-size: 12px;
 }
 
 .rating-count {
-  color: #aaa;
+  color: var(--text-light);
   font-size: 11px;
 }
 
@@ -102,16 +104,16 @@
 }
 
 .price-current {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
-  color: #1B3D2F;
+  color: var(--brown-dark);
 }
 
 .add-btn {
-  width: 34px;
-  height: 34px;
-  background-color: #1B3D2F;
-  color: #4CAF7A;
+  width: 38px;
+  height: 38px;
+  background-color: var(--brown-dark);
+  color: #FFFFFF;
   border: none;
   border-radius: 50%;
   font-size: 20px;
@@ -119,65 +121,54 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.2s;
+  transition: background 0.2s, transform 0.2s;
   font-weight: 300;
   line-height: 1;
+  box-shadow: var(--shadow-sm);
 }
 
 .add-btn:hover {
-  background-color: #4CAF7A;
-  color: #1B3D2F;
+  background-color: var(--brown-mid);
+  transform: scale(1.08);
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
   .new-arrivals {
-    padding: 40px 0;
+    padding: 48px 0;
+  }
+
+  .arrivals-header {
+    align-items: flex-start;
   }
 
   .arrivals-btn {
     width: 100%;
-    margin-bottom: 20px;
   }
 
   .arrival-item {
-    padding: 14px 16px;
+    padding: 16px;
     gap: 14px;
   }
 
-  .arrival-img-wrap {
-    width: 60px;
-    height: 60px;
+  .arrival-item:hover {
+    padding-left: 16px;
   }
 
-  .arrival-name {
-    font-size: 14px;
+  .arrival-img-wrap {
+    width: 68px;
+    height: 68px;
   }
 }
 
 @media (max-width: 480px) {
   .arrival-item {
     flex-wrap: wrap;
-    padding: 14px;
-    gap: 12px;
-  }
-
-  .arrival-info {
-    flex: 1;
-    min-width: calc(100% - 72px);
   }
 
   .arrival-price {
     width: 100%;
     justify-content: space-between;
     padding-top: 8px;
-    border-top: 1px solid #E8F0EC;
-  }
-
-  .arrival-desc {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+    border-top: 1px dashed var(--border);
   }
 }

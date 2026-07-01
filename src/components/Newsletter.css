@@ -1,74 +1,78 @@
-﻿.newsletter {
-  background: linear-gradient(135deg, #1B3D2F 0%, #2D5A47 50%, #1F4D3A 100%);
-  padding: 70px 24px;
-  text-align: center;
+.newsletter {
+  background: #F5F5F5;
+  padding: 72px 24px;
   position: relative;
-  overflow: hidden;
-}
-
-.newsletter::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: repeating-linear-gradient(
-    45deg,
-    transparent,
-    transparent 50px,
-    rgba(76, 175, 122, 0.03) 50px,
-    rgba(76, 175, 122, 0.03) 51px
-  );
 }
 
 .newsletter-inner {
   position: relative;
   z-index: 2;
-  max-width: 560px;
+  max-width: 640px;
   margin: 0 auto;
+  background: #FFFFFF;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 48px 40px;
+  box-shadow: var(--shadow-md);
+  text-align: center;
 }
 
 .nl-eyebrow {
-  color: #4CAF7A;
+  color: var(--brown-dark);
   font-size: 11px;
   font-weight: 700;
-  letter-spacing: 3px;
+  letter-spacing: 2.5px;
   text-transform: uppercase;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .nl-title {
-  font-size: 36px;
+  font-family: 'Playfair Display', serif;
+  font-size: 32px;
   font-weight: 700;
-  color: #FFFFFF;
-  margin-bottom: 14px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  line-height: 1.2;
 }
 
 .nl-desc {
-  color: rgba(255,255,255,0.65);
-  font-size: 13px;
-  line-height: 1.8;
-  margin-bottom: 30px;
-  font-weight: 300;
+  color: var(--text-light);
+  font-size: 13.5px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+  font-weight: 400;
+  max-width: 440px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .nl-form {
   display: flex;
   gap: 0;
-  max-width: 480px;
-  margin: 0 auto 16px;
-  border-radius: 6px;
+  max-width: 100%;
+  margin: 0 auto 14px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nl-form:focus-within {
+  border-color: var(--gold-light);
+  box-shadow: 0 0 0 3px rgba(76, 175, 122, 0.12);
 }
 
 .nl-input {
   flex: 1;
   padding: 14px 18px;
   border: none;
-  background: rgba(255,255,255,0.95);
+  background: #FFFFFF;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  color: #1B3D2F;
+  color: var(--text-dark);
   outline: none;
+  min-width: 0;
 }
 
 .nl-input::placeholder {
@@ -76,66 +80,63 @@
 }
 
 .nl-btn {
-  background-color: #4CAF7A;
+  background-color: var(--brown-dark);
   color: #FFFFFF;
   border: none;
-  padding: 14px 24px;
+  padding: 14px 28px;
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
   transition: background 0.2s;
   white-space: nowrap;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.3px;
 }
 
 .nl-btn:hover {
-  background-color: #8FD4B0;
+  background-color: var(--brown-mid);
 }
 
 .nl-success {
-  background-color: rgba(39, 174, 96, 0.15);
-  border: 1px solid rgba(39, 174, 96, 0.4);
-  color: #a8e6bf;
+  background-color: rgba(39, 174, 96, 0.08);
+  border: 1px solid rgba(39, 174, 96, 0.25);
+  color: var(--brown-mid);
   padding: 14px 24px;
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   font-size: 13px;
   font-weight: 500;
-  max-width: 480px;
-  margin: 0 auto 16px;
+  margin: 0 auto 14px;
 }
 
 .nl-privacy {
-  color: rgba(255,255,255,0.4);
+  color: var(--text-light);
   font-size: 11px;
 }
 
-/* Responsiveness */
 @media (max-width: 768px) {
   .newsletter {
-    padding: 50px 16px;
+    padding: 48px 16px;
+  }
+
+  .newsletter-inner {
+    padding: 36px 24px;
   }
 
   .nl-title {
-    font-size: 28px;
+    font-size: 26px;
   }
 
   .nl-desc {
-    font-size: 12px;
-    margin-bottom: 24px;
+    font-size: 12.5px;
+    margin-bottom: 22px;
   }
 
   .nl-form {
     flex-direction: column;
-    border-radius: 8px;
-  }
-
-  .nl-input {
-    border-radius: 8px 8px 0 0;
+    border-radius: var(--radius-sm);
   }
 
   .nl-btn {
-    border-radius: 0 0 8px 8px;
     padding: 14px;
   }
 }
@@ -145,8 +146,12 @@
     padding: 40px 12px;
   }
 
+  .newsletter-inner {
+    padding: 28px 20px;
+  }
+
   .nl-title {
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .nl-eyebrow {
