@@ -109,8 +109,38 @@
 }
 
 .nl-privacy {
-  color: var(--text-light);
-  font-size: 11px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 14px;
+  margin-top: 4px;
+  padding: 10px 16px;
+  background: #f8faf8;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--radius-full);
+}
+
+.nl-privacy-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-mid);
+  font-size: 11.5px;
+  font-weight: 500;
+}
+
+.nl-privacy-item svg {
+  color: var(--brown-light);
+  flex-shrink: 0;
+}
+
+.nl-privacy-divider {
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {

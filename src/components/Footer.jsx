@@ -34,9 +34,38 @@ const legalLinks = [
 ];
 
 const trustItems = [
-  { title: 'Free Shipping', desc: 'On qualifying orders' },
-  { title: 'Secure Checkout', desc: 'Safe & encrypted' },
-  { title: 'Easy Returns', desc: 'Hassle-free policy' },
+  {
+    title: 'Free Shipping',
+    desc: 'On qualifying orders',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M1 3h15v13H1zM16 8h4l3 5v3h-7V8z" />
+        <circle cx="5.5" cy="18.5" r="2.5" />
+        <circle cx="18.5" cy="18.5" r="2.5" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Secure Checkout',
+    desc: 'Safe & encrypted',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <rect x="3" y="11" width="18" height="11" rx="2" />
+        <path d="M7 11V7a5 5 0 0110 0v4" />
+      </svg>
+    ),
+  },
+  {
+    title: 'Easy Returns',
+    desc: 'Hassle-free policy',
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true">
+        <path d="M3 7h18v13H3z" />
+        <path d="M8 7V5a4 4 0 018 0v2" />
+        <path d="M12 12v4M10 14h4" />
+      </svg>
+    ),
+  },
 ];
 
 const socialLinks = [
@@ -81,19 +110,20 @@ const socialLinks = [
 const Footer = () => {
   return (
     <footer className="footer">
-      <div className="footer-trust">
-        <div className="container footer-trust-inner">
-          {trustItems.map((item) => (
-            <div key={item.title} className="footer-trust-item">
-              <span className="footer-trust-title">{item.title}</span>
-              <span className="footer-trust-desc">{item.desc}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
       <div className="footer-main">
         <div className="container">
+          <div className="footer-trust">
+            {trustItems.map((item) => (
+              <div key={item.title} className="footer-trust-card">
+                <div className="footer-trust-icon">{item.icon}</div>
+                <div className="footer-trust-text">
+                  <span className="footer-trust-title">{item.title}</span>
+                  <span className="footer-trust-desc">{item.desc}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
           <div className="footer-grid">
             <div className="footer-brand">
               <div className="footer-logo">

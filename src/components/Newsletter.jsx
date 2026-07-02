@@ -40,9 +40,21 @@ const Newsletter = () => {
           </div>
         )}
 
-        <p className="nl-privacy">
-          🔒 No spam, ever. Unsubscribe anytime.
-        </p>
+        <div className="nl-privacy">
+          <span className="nl-privacy-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+            </svg>
+            No spam, ever
+          </span>
+          <span className="nl-privacy-divider" aria-hidden="true" />
+          <span className="nl-privacy-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6" />
+            </svg>
+            Unsubscribe anytime
+          </span>
+        </div>
       </div>
     </section>
   );
