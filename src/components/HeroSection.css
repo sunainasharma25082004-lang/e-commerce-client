@@ -36,7 +36,7 @@
   pointer-events: none;
 }
 
-/* Match site container — no double padding */
+/* Match site container ï¿½ no double padding */
 .hero-wrap {
   position: relative;
   z-index: 2;
@@ -74,9 +74,9 @@
 
 .hero-badge {
   display: inline-flex;
-  background: rgba(91, 181, 103, 0.1);
-  border: 1px solid rgba(91, 181, 103, 0.25);
-  color: var(--brown-dark);
+  background: var(--highlight-bg);
+  border: 1px solid var(--highlight-bg);
+  color: var(--highlight-text);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 2px;

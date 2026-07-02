@@ -14,10 +14,10 @@ const AnnouncementBar = () => {
   const prev = () => setCurrent((c) => (c - 1 + announcements.length) % announcements.length);
   const next = () => setCurrent((c) => (c + 1) % announcements.length);
 
-  const isFreeShipping = announcements[current].toLowerCase().includes('free shipping');
+  const isPromo = /free shipping|off|sale|live|new/i.test(announcements[current]);
 
   return (
-    <div className={`announcement-bar${isFreeShipping ? ' announcement-bar--free-shipping' : ''}`}>
+    <div className={`announcement-bar${isPromo ? ' announcement-bar--promo' : ''}`}>
       <button className="ann-arrow" onClick={prev}>‹</button>
       <p className="ann-text">{announcements[current]}</p>
       <button className="ann-arrow" onClick={next}>›</button>

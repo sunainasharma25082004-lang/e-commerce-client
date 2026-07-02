@@ -4,6 +4,9 @@
   --brown-dark: #2a431c;
   --brown-mid: #3c6034;
   --brown-light: #598246;
+  --highlight-bg: #2a431c;
+  --highlight-text: #ffffff;
+  --highlight-text-muted: rgba(255, 255, 255, 0.78);
   --gold: #3c703c;
   --gold-light: #5bb567;
   --cream: #FFFFFF;
@@ -258,8 +261,8 @@ img {
 }
 
 .badge-new {
-  background-color: #498331;
-  color: white;
+  background-color: var(--highlight-bg);
+  color: var(--highlight-text);
 }
 
 .free-shipping-text {

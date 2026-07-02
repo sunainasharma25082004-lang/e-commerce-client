@@ -12,9 +12,9 @@
   letter-spacing: 0.3px;
 }
 
-.announcement-bar--free-shipping {
+.announcement-bar--promo {
   background-color: #2a431c;
-  color: #FFFFFF;
+  color: #ffffff;
   border-bottom-color: #2a431c;
 }
 
@@ -23,8 +23,8 @@
   min-width: 340px;
 }
 
-.announcement-bar--free-shipping .ann-text {
-  color: #FFFFFF;
+.announcement-bar--promo .ann-text {
+  color: #ffffff;
   font-weight: 500;
 }
 

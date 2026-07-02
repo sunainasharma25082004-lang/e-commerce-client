@@ -86,14 +86,14 @@
 }
 
 .nav-item.active a {
-  background: rgba(91, 181, 103, 0.15);
-  color: #2a431c;
+  background: #2a431c;
+  color: #ffffff;
 }
 
 .nav-item a:hover,
 .logout-span-btn:hover {
   color: #2a431c;
-  background: rgba(91, 181, 103, 0.1);
+  background: #eeeeee;
 }
 
 .nav-actions {
@@ -118,17 +118,17 @@
 }
 
 .nav-icon-btn:hover {
-  background: rgba(91, 181, 103, 0.15);
-  border-color: rgba(91, 181, 103, 0.3);
-  color: #5bb567;
+  background: #eeeeee;
+  border-color: #dddddd;
+  color: #2a431c;
 }
 
 .cart-badge {
   position: absolute;
   top: -2px;
   right: -2px;
-  background-color: #5bb567;
-  color: #FFFFFF;
+  background-color: #2a431c;
+  color: #ffffff;
   font-size: 9px;
   font-weight: 700;
   min-width: 17px;
@@ -288,8 +288,8 @@
   }
 
   .mobile-menu-toggle:hover {
-    background: rgba(91, 181, 103, 0.15);
-    color: #5bb567;
+    background: #eeeeee;
+    color: #2a431c;
   }
 
   .mobile-menu-overlay {
@@ -379,7 +379,8 @@
   }
 
   .nav-item.active a {
-    background: rgba(91, 181, 103, 0.15);
+    background: #2a431c;
+    color: #ffffff;
   }
 
   .mobile-only-link {

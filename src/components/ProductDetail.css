@@ -1,4 +1,4 @@
-/* Product detail — spacing tokens (no double .container padding) */
+/* Product detail ï¿½ spacing tokens (no double .container padding) */
 .pd-page {
   --pd-px: 24px;
   --pd-pt: 28px;
@@ -120,15 +120,15 @@
 }
 
 .badge-sale { background: #c0392b; color: #fff; }
-.badge-new  { background: #27ae60; color: #fff; }
-.badge-hot  { background: #e67e22; color: #fff; }
+.badge-new  { background: var(--highlight-bg); color: var(--highlight-text); }
+.badge-hot  { background: var(--highlight-bg); color: var(--highlight-text); }
 
 .discount-badge {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: var(--gold);
-  color: var(--brown-dark);
+  background: var(--highlight-bg);
+  color: var(--highlight-text);
   font-size: 12px;
   font-weight: 700;
   padding: 4px 10px;
@@ -498,14 +498,14 @@
 }
 
 .green-card {
-  background: #F0F7F3;
-  border-color: #E0EBE6;
+  background: var(--highlight-bg);
+  border-color: var(--highlight-bg);
   text-align: center;
 }
 
 .green-card-text {
   font-size: 13px;
-  color: #555555;
+  color: var(--highlight-text-muted);
   margin: 0 0 12px;
   line-height: 1.6;
 }
@@ -513,15 +513,21 @@
 .green-card-btn {
   width: 100%;
   padding: 9px;
-  background: #2a431c;
-  color: #FFFFFF;
-  border: none;
+  background: rgba(255, 255, 255, 0.14);
+  color: var(--highlight-text);
+  border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 6px;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
   font-weight: 700;
   cursor: pointer;
   margin: 0;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.green-card-btn:hover {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.4);
 }
 
 /* TABS */

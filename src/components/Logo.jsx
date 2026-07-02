@@ -1,5 +1,5 @@
 import React from 'react';
-import clientLogo from '../assets/logo/client-logo.jpeg';
+import clientLogo from '../assets/logo/client-logo.png';
 import './Logo.css';
 
 const Logo = ({ className = '', size = 'default' }) => (

@@ -49,9 +49,9 @@
 
 .col-tag {
   display: inline-block;
-  background-color: rgba(91, 181, 103, 0.25);
-  border: 1px solid rgba(91, 181, 103, 0.5);
-  color: #5bb567;
+  background-color: #2a431c;
+  border: 1px solid #2a431c;
+  color: #ffffff;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;

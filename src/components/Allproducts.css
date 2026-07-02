@@ -260,7 +260,7 @@
 .clear-btn {
   background: none;
   border: none;
-  color: #5bb567;
+  color: #888888;
   font-size: 11px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
@@ -330,7 +330,7 @@
 }
 
 .sidebar-item.active .stars {
-  color: #5bb567;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .rating-item {
