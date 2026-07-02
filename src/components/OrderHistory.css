@@ -1,4 +1,4 @@
-﻿.orders-page {
+.orders-page {
   background-color: var(--cream-light);
   min-height: 90vh;
   padding-bottom: 60px;
@@ -94,7 +94,7 @@
   border: 1px solid var(--border);
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(27, 61, 47, 0.04);
+  box-shadow: 0 4px 20px rgba(42, 67, 28, 0.04);
 }
 
 /* Card Header */
@@ -160,7 +160,7 @@
 .status-badge.pending,
 .status-badge.status-placed,
 .status-badge.status-confirmed,
-.status-badge.status-packed { background: rgba(76, 175, 122, 0.15); color: #2D6A4F; }
+.status-badge.status-packed { background: rgba(91, 181, 103, 0.15); color: #3c703c; }
 .status-badge.status-shipped,
 .status-badge.status-out_for_delivery { background: rgba(52, 152, 219, 0.12); color: #2980b9; }
 .status-badge.status-cancelled { background: rgba(192, 57, 43, 0.12); color: #c0392b; }
@@ -171,7 +171,7 @@
   align-items: flex-start;
   gap: 14px;
   padding: 16px 24px;
-  background: linear-gradient(135deg, rgba(76, 175, 122, 0.1), rgba(255, 255, 255, 0.6));
+  background: linear-gradient(135deg, rgba(91, 181, 103, 0.1), rgba(255, 255, 255, 0.6));
   border-bottom: 1px solid var(--border);
 }
 
@@ -254,7 +254,7 @@
 }
 
 .timeline-step.active .timeline-dot {
-  box-shadow: 0 0 0 4px rgba(76, 175, 122, 0.25);
+  box-shadow: 0 0 0 4px rgba(91, 181, 103, 0.25);
   border-color: var(--gold);
 }
 

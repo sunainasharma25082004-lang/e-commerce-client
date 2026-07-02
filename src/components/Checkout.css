@@ -1,4 +1,4 @@
-﻿.checkout-page {
+.checkout-page {
   background-color: var(--cream-light);
   min-height: 90vh;
   padding-bottom: 60px;
@@ -74,7 +74,7 @@
 .form-group input:focus, .form-group select:focus {
   outline: none;
   border-color: var(--gold);
-  box-shadow: 0 0 0 3px rgba(76, 175, 122, 0.15);
+  box-shadow: 0 0 0 3px rgba(91, 181, 103, 0.15);
 }
 
 .place-order-btn, .pay-now-btn {

@@ -1,4 +1,4 @@
-ï»¿/* Modern product card â€” shared across shop grids */
+/* Modern product card — shared across shop grids */
 .product-card {
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 10px rgba(27, 61, 47, 0.12);
+  box-shadow: 0 2px 10px rgba(42, 67, 28, 0.12);
   transition: color 0.2s, transform 0.2s;
   padding: 0;
   margin: 0;
@@ -107,7 +107,7 @@
   display: flex;
   gap: 6px;
   padding: 10px;
-  background: linear-gradient(to top, rgba(27, 61, 47, 0.82) 0%, rgba(27, 61, 47, 0.35) 55%, transparent 100%);
+  background: linear-gradient(to top, rgba(42, 67, 28, 0.82) 0%, rgba(42, 67, 28, 0.35) 55%, transparent 100%);
   opacity: 0;
   transform: translateY(8px);
   transition: opacity 0.25s ease, transform 0.25s ease;
@@ -138,7 +138,7 @@
 }
 
 .product-card-action--gold {
-  background: rgba(76, 175, 122, 0.95);
+  background: rgba(91, 181, 103, 0.95);
   color: var(--white);
 }
 
@@ -189,7 +189,7 @@
   border-top: 1px solid #E8F0EC;
 }
 
-/* Rating â€” aligned row */
+/* Rating — aligned row */
 .product-card-rating {
   display: flex;
   align-items: center;
@@ -275,7 +275,7 @@
   margin: 0;
 }
 
-/* Mobile â€” always show actions */
+/* Mobile — always show actions */
 @media (max-width: 768px) {
   .product-card-actions {
     opacity: 1;

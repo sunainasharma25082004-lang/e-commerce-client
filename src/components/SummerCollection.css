@@ -1,4 +1,4 @@
-﻿.summer-collection {
+.summer-collection {
   padding: 72px 0;
   background-color: #F5F5F5;
 }
@@ -36,7 +36,7 @@
 .collection-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(27,61,47,0.75) 0%, rgba(27,61,47,0.2) 100%);
+  background: linear-gradient(to right, rgba(42,67,28,0.75) 0%, rgba(42,67,28,0.2) 100%);
 }
 
 .collection-content {
@@ -49,9 +49,9 @@
 
 .col-tag {
   display: inline-block;
-  background-color: rgba(76, 175, 122, 0.25);
-  border: 1px solid rgba(76, 175, 122, 0.5);
-  color: #4CAF7A;
+  background-color: rgba(91, 181, 103, 0.25);
+  border: 1px solid rgba(91, 181, 103, 0.5);
+  color: #5bb567;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 2px;
@@ -156,8 +156,8 @@
 
 .btn-outline-gold {
   background: transparent;
-  border: 1.5px solid #1B3D2F;
-  color: #1B3D2F;
+  border: 1.5px solid #2a431c;
+  color: #2a431c;
   padding: 8px 18px;
   font-family: 'Poppins', sans-serif;
   font-size: 12px;
@@ -169,7 +169,7 @@
 }
 
 .btn-outline-gold:hover {
-  background-color: #1B3D2F;
+  background-color: #2a431c;
   color: #FFFFFF;
 }
 

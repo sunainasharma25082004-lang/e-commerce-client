@@ -1,4 +1,4 @@
-﻿/* Product detail — spacing tokens (no double .container padding) */
+/* Product detail � spacing tokens (no double .container padding) */
 .pd-page {
   --pd-px: 24px;
   --pd-pt: 28px;
@@ -270,7 +270,7 @@
 }
 
 .pd-price-save {
-  background: rgba(76, 175, 122, 0.15);
+  background: rgba(91, 181, 103, 0.15);
   color: var(--gold);
   font-size: 12px;
   font-weight: 700;
@@ -513,7 +513,7 @@
 .green-card-btn {
   width: 100%;
   padding: 9px;
-  background: #1B3D2F;
+  background: #2a431c;
   color: #FFFFFF;
   border: none;
   border-radius: 6px;
@@ -776,7 +776,7 @@
   margin: 0;
 }
 
-/* ── Responsive ── */
+/* -- Responsive -- */
 
 @media (max-width: 1200px) {
   .pd-page {

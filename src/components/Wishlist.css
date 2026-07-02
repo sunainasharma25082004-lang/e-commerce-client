@@ -1,4 +1,4 @@
-﻿.wishlist-page {
+.wishlist-page {
   background: var(--cream-light);
   min-height: 70vh;
   padding-bottom: 60px;
@@ -19,7 +19,7 @@
 }
 
 .wishlist-header .bc-link {
-  color: #1B3D2F;
+  color: #2a431c;
   font-size: 13px;
   cursor: pointer;
 }
@@ -89,7 +89,7 @@
 }
 
 .wishlist-card:hover {
-  box-shadow: 0 8px 28px rgba(27, 61, 47, 0.08);
+  box-shadow: 0 8px 28px rgba(42, 67, 28, 0.08);
 }
 
 .wishlist-remove {

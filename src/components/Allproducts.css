@@ -1,4 +1,4 @@
-﻿.all-products-page {
+.all-products-page {
   background-color: #F5F5F5;
   min-height: 100vh;
 }
@@ -16,7 +16,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 80% 20%, rgba(76, 175, 122, 0.12), transparent 50%);
+  background: radial-gradient(circle at 80% 20%, rgba(91, 181, 103, 0.12), transparent 50%);
   pointer-events: none;
 }
 
@@ -33,7 +33,7 @@
 }
 
 .bc-link {
-  color: #1B3D2F;
+  color: #2a431c;
   font-size: 12px;
   cursor: pointer;
   font-weight: 500;
@@ -95,7 +95,7 @@
   border: 1.5px solid #E0EBE6;
   border-radius: 12px;
   padding: 6px;
-  box-shadow: 0 2px 12px rgba(27, 61, 47, 0.06);
+  box-shadow: 0 2px 12px rgba(42, 67, 28, 0.06);
   margin-top: 8px;
 }
 
@@ -174,8 +174,8 @@
 
 .chip-btn.active,
 .chip-btn:hover {
-  background: #1B3D2F;
-  border-color: #1B3D2F;
+  background: #2a431c;
+  border-color: #2a431c;
   color: #FFFFFF;
 }
 
@@ -194,18 +194,18 @@
   font-family: 'Poppins', sans-serif;
   font-size: 13px;
   font-weight: 600;
-  color: #1B3D2F;
+  color: #2a431c;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(27, 61, 47, 0.05);
+  box-shadow: 0 2px 8px rgba(42, 67, 28, 0.05);
 }
 
 .mobile-filter-toggle-btn:hover {
-  border-color: #4CAF7A;
+  border-color: #5bb567;
 }
 
 .filter-overlay {
@@ -229,7 +229,7 @@
   padding: 22px;
   position: sticky;
   top: 84px;
-  box-shadow: 0 4px 20px rgba(27, 61, 47, 0.06);
+  box-shadow: 0 4px 20px rgba(42, 67, 28, 0.06);
 }
 
 .sidebar-header {
@@ -244,7 +244,7 @@
 .sidebar-header span {
   font-size: 14px;
   font-weight: 700;
-  color: #1B3D2F;
+  color: #2a431c;
 }
 
 .sidebar-close-btn {
@@ -260,7 +260,7 @@
 .clear-btn {
   background: none;
   border: none;
-  color: #4CAF7A;
+  color: #5bb567;
   font-size: 11px;
   font-family: 'Poppins', sans-serif;
   cursor: pointer;
@@ -270,7 +270,7 @@
 }
 
 .clear-btn:hover {
-  color: #1B3D2F;
+  color: #2a431c;
 }
 
 .sidebar-section {
@@ -288,7 +288,7 @@
 .sidebar-title {
   font-size: 11px;
   font-weight: 700;
-  color: #1B3D2F;
+  color: #2a431c;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   margin-bottom: 12px;
@@ -320,17 +320,17 @@
 
 .sidebar-item:hover {
   background: #F8FAF9;
-  color: #1B3D2F;
+  color: #2a431c;
 }
 
 .sidebar-item.active {
-  background: #1B3D2F;
+  background: #2a431c;
   color: #FFFFFF;
   font-weight: 500;
 }
 
 .sidebar-item.active .stars {
-  color: #4CAF7A;
+  color: #5bb567;
 }
 
 .rating-item {
@@ -348,7 +348,7 @@
   border-radius: 12px;
   padding: 14px 18px;
   margin-bottom: 20px;
-  box-shadow: 0 2px 10px rgba(27, 61, 47, 0.04);
+  box-shadow: 0 2px 10px rgba(42, 67, 28, 0.04);
 }
 
 .ap-count {
@@ -357,7 +357,7 @@
 }
 
 .ap-count strong {
-  color: #1B3D2F;
+  color: #2a431c;
   font-weight: 700;
 }
 
@@ -387,7 +387,7 @@
 }
 
 .sort-select:focus {
-  border-color: #4CAF7A;
+  border-color: #5bb567;
 }
 
 /* Products Grid */
@@ -425,7 +425,7 @@
   width: 36px;
   height: 36px;
   border: 3.5px solid #E0EBE6;
-  border-top-color: #4CAF7A;
+  border-top-color: #5bb567;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -460,14 +460,14 @@
 }
 
 .page-btn:hover {
-  border-color: #4CAF7A;
-  color: #1B3D2F;
+  border-color: #5bb567;
+  color: #2a431c;
 }
 
 .page-btn.active {
-  background: #1B3D2F;
-  border-color: #1B3D2F;
-  color: #4CAF7A;
+  background: #2a431c;
+  border-color: #2a431c;
+  color: #5bb567;
   font-weight: 700;
 }
 

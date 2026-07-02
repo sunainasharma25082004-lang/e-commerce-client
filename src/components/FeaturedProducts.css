@@ -1,4 +1,4 @@
-﻿.featured-products {
+.featured-products {
   padding: 72px 0;
   background-color: #FFFFFF;
 }
@@ -24,8 +24,8 @@
 
 .tab-btn.active,
 .tab-btn:hover {
-  background-color: #1B3D2F;
-  border-color: #1B3D2F;
+  background-color: #2a431c;
+  border-color: #2a431c;
   color: #FFFFFF;
 }
 

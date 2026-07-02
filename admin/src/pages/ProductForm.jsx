@@ -314,7 +314,7 @@ const ProductForm = () => {
           <div className="form-row">
             <div className="form-group">
               <label>Colors (comma separated)</label>
-              <input name="colors" value={form.colors} onChange={handleChange} placeholder="#1a1a1a, #4CAF7A" />
+              <input name="colors" value={form.colors} onChange={handleChange} placeholder="#1a1a1a, #5bb567" />
             </div>
             <div className="form-group">
               <label>Tags (comma separated)</label>

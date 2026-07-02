@@ -1,4 +1,4 @@
-﻿.shop-categories {
+.shop-categories {
   padding: 72px 0 56px;
   background-color: #F5F5F5;
 }
@@ -7,7 +7,7 @@
 .categories-empty {
   text-align: center;
   padding: 40px 20px;
-  color: #4A7C59;
+  color: #598246;
   font-size: 14px;
 }
 
@@ -31,8 +31,8 @@
 
 .filter-btn.active,
 .filter-btn:hover {
-  background-color: #1B3D2F;
-  border-color: #1B3D2F;
+  background-color: #2a431c;
+  border-color: #2a431c;
   color: #FFFFFF;
 }
 
@@ -84,7 +84,7 @@
 .cat-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(to top, rgba(27,61,47,0.45) 0%, transparent 55%);
+  background: linear-gradient(to top, rgba(42,67,28,0.45) 0%, transparent 55%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }

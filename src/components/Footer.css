@@ -25,7 +25,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 20px;
   font-weight: 700;
-  color: #1B3D2F;
+  color: #2a431c;
 }
 
 .footer-tagline {
@@ -46,7 +46,7 @@
   height: 34px;
   background: #FFFFFF;
   border: 1px solid #E0E0E0;
-  color: #1B3D2F;
+  color: #2a431c;
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -58,9 +58,9 @@
 }
 
 .social-link:hover {
-  background: #1B3D2F;
+  background: #2a431c;
   color: #FFFFFF;
-  border-color: #1B3D2F;
+  border-color: #2a431c;
 }
 
 .footer-heading {
@@ -89,7 +89,7 @@
 
 .footer-links a:hover,
 .footer-legal a:hover {
-  color: #1B3D2F;
+  color: #2a431c;
 }
 
 .footer-bottom {

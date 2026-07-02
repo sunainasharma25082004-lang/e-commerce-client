@@ -60,7 +60,7 @@
 
 .nl-form:focus-within {
   border-color: var(--gold-light);
-  box-shadow: 0 0 0 3px rgba(76, 175, 122, 0.12);
+  box-shadow: 0 0 0 3px rgba(91, 181, 103, 0.12);
 }
 
 .nl-input {
