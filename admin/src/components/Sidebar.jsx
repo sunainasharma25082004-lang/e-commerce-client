@@ -17,7 +17,7 @@ const Sidebar = () => {
   return (
     <aside className="sidebar">
       <div className="sidebar-brand">
-        <Logo size="sm" />
+        <Logo className="sidebar-logo" />
         <span>Admin Panel</span>
       </div>
 
